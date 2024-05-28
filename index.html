@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Google tag (gtag.js) <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSZCPFBGW9"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-DSZCPFBGW9'); </script>
+    --> <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.helpmusicians.org.uk/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.helpmusicians.org.uk/favicon-16x16.png">
+    <title>Help Musicians | Income Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" rel="stylesheet" >
+    <link href="main.css" rel="stylesheet" >
+    <link href="formie-base.css" rel="stylesheet">
+    <style>
+        .dropdown-menu {
+            --bs-dropdown-link-active-bg: #6d30cb;
+        }
+        .bg-primary{
+            background-color: #6d30cb !important;
+        }
+        #btn-scenario-0, #btn-scenario-1, #btn-scenario-2, #btn-scenario-3, #btn-scenario-4 {
+            background-color: #FEF200 !important;
+            border-color: #FEF200 !important;
+            
+        }
+
+    </style>
+
+<!--//'#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636',-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    
+</head>
+<body>
+    <header class="site-header site-header--shape-config-2">
+        <div class="container">
+            <svg class="shape__circle shape site-header__shape" width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="80" cy="80" r="80"></circle></svg>
+            <div class="site-header__top">
+                <a class="site-logo" href="/"><img src="https://www.helpmusicians.org.uk/assets/logos/_460xAUTO_crop_center-center_none/logo.svg" alt="Help Musicians" width="230" height="79"></a>
+                <div class="site-header__top-actions--mobile">
+                <!--a class="button--circle button--white" href="/search"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_3794_52683)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.125 0a8.125 8.125 0 104.793 14.686l5.314 5.343L20 18.262l-5.314-5.344A8.125 8.125 0 008.125 0zM2.5 8.125a5.625 5.625 0 1111.25 0 5.625 5.625 0 01-11.25 0z" fill="currentColor"></path></g></svg><span class="visually-hidden">Search</span></a-->
+                <button class="button--circle button--purple" id="mobileNavButton" aria-haspopup="true" aria-controls="mainNav">
+                    <svg class="nav-icon--burger" width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M0 .002h18v2H0zm0 7h18v2H0zm0 7h18v2H0z"></path></svg>
+                    <svg class="nav-icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2512_29533)"><path d="M24 2.418L21.583 0 12 9.583 2.417-.001 0 2.416 9.582 12 0 21.582l2.417 2.417L12 14.417 21.581 24 24 21.583 14.417 12 24 2.418z" fill="currentColor"></path></g><defs><clipPath id="clip0_2512_29533"><path fill="currentColor" d="M0 0h24v24H0z"></path></clipPath></defs></svg>
+                    <svg class="nav-icon--active" width="40" height="27" viewBox="0 0 40 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.672 1.992c1.583-2.375 5.073-2.375 6.656 0L40 27H0L16.672 1.992z" fill="currentColor"></path></svg>
+                    <span class="visually-hidden">Menu</span>
+                </button>
+            </div>
+        </div>               
+
+        <nav class="site-header__nav" aria-label="Main" id="mainNav">
+            <ul role="menu" class="main-nav navbar-nav mr-auto" id="dd">
+                <li>&nbsp;</li>
+            
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="target" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill target_this"></i><span>Target</span><i class="bi bi-caret-left-fill target_this"></i></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="career" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill career_this"></i><span>Career</span><i class="bi bi-caret-left-fill career_this"></i></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="current" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill current_this"></i><span>Current</span><i class="bi bi-caret-left-fill current_this"></i></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="proposed" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill proposed_this"></i><span>Proposed</span><i class="bi bi-caret-left-fill proposed_this"></i></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="excel" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><span>Export to Excel</span></a>
+                </li>
+         
+             </ul>
+         </nav>
+                 
+  </header>
+
+  <form id="frm" method="post" class="form-floating">
+
+  <div id="target_div" class="container-fluid d-none">
+    <div class="row"><h4>Setting Your Target</h4></div>
+    <div class="row" id="target_12">
+        <div class="col-9">Do you know how much you want to earn from music in the next <strong>12 months</strong>?</div>
+        <div id="dv_yes_1" class="col-2"><button id="btn_1_yes" type="button" class="btn btn-lg btn-primary yesno">Yes</button></div>
+        <div id="dv_no_1" class="col-1"><button id="btn_1_no" type="button" class="btn btn-lg btn-danger yesno">No</button></div>
+        <div id="dv_input_1" class="col-2 d-none"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target1" id="target1" value="20000"></div>
+        <div id="dv_btn_1" class="col-1 d-none"><button type="button" class="btn btn-lg btn-success yesno" id="set_target1">Set Target</button></div>
+    </div>
+    <div class="row d-none" id="target_6">
+        <div class="col-9">Do you know how much you want to earn from music in the next <strong>6 months</strong>?</div>
+        <div id="dv_yes_2" class="col-2"><button id="btn_2_yes" type="button" class="btn btn-lg btn-primary yesno">Yes</button></div>
+        <div id="dv_no_2" class="col-1"><button id="btn_2_no" type="button" class="btn btn-lg btn-danger yesno">No</button></div>
+        <div id="dv_input_2" class="col-2 d-none"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target2" id="target2" value="10000"></div>
+        <div id="dv_btn_2" class="col-1 d-none"><button type="button" class="btn btn-lg btn-success yesno" id="set_target2">Set Target</button></div>
+    </div>
+    <div class="row d-none" id="target_1">
+        <div class="col-9">How much do you earn from music <strong>each month</strong> now?</div>
+        <div id="dv_input_3" class="col-2"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target3" id="target3" value="100"></div>
+        <div id="dv_btn_3" class="col-1"><button type="button" class="btn btn-lg btn-success yesno" id="set_target3">Set Target</button></div>
+    </div>
+  </div>
+
+  <div id="career_div" class="container-fluid d-none">
+    <div class="row"><div class="col-12 mx-4 my-4"><h4>Setting the Career Stage</h4></div></div>
+    <div class="row"><div class="col-12 mx-4 my-4">Which scenario best describes your career to date?</div></div>
+    <div id="scenario_heading_1" class="row mt-4 bg-primary text-light">
+        <div class="col-6">Stage one: early stage, no specialism</div>
+        <div class="col-6">Characteristics:</div>
+    </div>
+    <div class="row mx-4 my-4">
+        <div class="col-2">Scenario 1: </div>
+        <div class="col-3"><button id="btn-scenario-0" type="button" class="btn btn-scenario w-100 btn-lg">Developing</button></div>
+        <div class="col-1">&nbsp</div>
+        <div class="col-6">Small number of recorded materials and
+            streams, no publishing, live gigs only</div>
+    </div>
+    <div class="row mx-4 my-4">
+        <div class="col-2">Scenario 2: </div>
+        <div class="col-3"><button id="btn-scenario-1" type="button" class="btn btn-scenario w-100 btn-lg">Emerging</button></div>
+        <div class="col-1">&nbsp</div>
+        <div class="col-6">Emerging Recorded and released album, more streams
+            (30,000+), very small publishing, live gigs</div>
+    </div>
+    <div id="scenario_heading_2" class="row mt-4 bg-primary text-light">
+        <div class="col-6">Stage two: some specialism </div>
+        <div class="col-6">Characteristics:</div>
+    </div>
+    <div class="row">
+        <div class="col-6"> 
+            <div class="row mx-4 my-4">
+                <div class="col-4">Scenario 3:</div>
+                <div class="col-6"><button id="btn-scenario-2" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– mainly recorded</button> </div>
+            </div>
+            <div class="row mx-4 my-4">
+                <div class="col-4">Scenario 4:</div>
+                <div class="col-6"><button id="btn-scenario-3" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– mainly live</button> </div>
+            </div>
+            <div class="row mx-4 my-4">
+                <div class="col-4">Scenario 5:</div>
+                <div class="col-6"><button id="btn-scenario-4" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– writer/producer</button> </div>            
+            </div>
+        </div>
+            <div class="col-6 mt-3">
+                <ul>
+                    <li>One largely successful release or multiple consistent sellers</li>
+                    <li>Sales, radio and/or sync licensing</li>
+                    <li>Touring venues (500-3k capacity)</li>
+                    <li>Next release is anticipated by fans, press and industry</li>
+                </ul>
+            </div>
+        </div>    
+    </div>
+ 
+ 
+  
+
+  <div id="scenario_div" class="container-fluid d-none">
+    <div class="row">
+        <div class="col-8">
+            <div class="container" id="contents">
+                <div class="row">
+                    <div class="col-6">&nbsp;</div>
+                    <div class="col-3 text-center mr-4"><h4>Current</h4></div>
+                    <div class="col-3 text-center proposed"><h4>Proposed</h4></div>
+                </div>
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-1 text-center">£/unit</div>
+                    <div class="col-1 text-center">Units</div>
+                    <div class="col-1 text-center">Total</div>
+                    <div class="col-1 text-center proposed">£/unit</div>
+                    <div class="col-1 text-center proposed">Units</div>
+                    <div class="col-1 text-center proposed">Total</div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <canvas id="chart1" width="200" height="300"></canvas>
+        </div>        
+    </div>
+  </div>
+</form>
+
+<!--export to excel table  -->
+<table id="exportable" summary="Table Summary" rules="groups" frame="hsides" border="2" class="d-none" >
+    <caption>Help Musicians Earnings Model Data Export</caption>
+    <thead valign="top">
+    <tr>
+        <th rowspan="2" valign="top">Category</th>
+        <th rowspan="2" valign="top">Entry</th>
+        <th colspan="3">Current</th>
+        <th colspan="3">Proposed</th>        
+    </tr>
+    <tr>
+        <th>£/unit</th>
+        <th>Units</th>
+        <th>Total</th>
+        <th>£/unit</th>
+        <th>Units</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody id="exportable_data">
+    <tr>
+        
+    </tr>
+    </tbody>
+    <tfoot>
+        <!--tr>
+            <td colspan="6" ><img id="chart_img"></td>
+        </tr-->
+        <tr>
+            <td colspan="6" id="return_link"></td>
+        </tr>
+    </tfoot>
+</table>
+<!--export to excel table -->
+  
+
+  <script>
+    var input_standard_classes = "w-100 float-end text-end blur form-control-lg"//w-75
+    var input_text_classes = "w-75 blur form-control-lg"
+    var target = -1
+    var scenario = -1
+    var delim='|'
+    var sep='~'
+    var bURLs=false
+    var ctx1 = document.getElementById("chart1").getContext("2d");
+
+    var colors = [  
+                '#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636',
+                '#3600FF','#B0BEB4','#596387','#21517F','#4D0E78',
+                '#5163FD','#650882','#0BBEB4','#96387F','#F1517',
+                '#DD0E78','#FF63FD','#000882','#F600FF','#0044B4',
+                '#0FF360','#66BEB4','#596387','#36F17F','#4D0E78',
+            ]
+    
+    //48 values
+    var scenarios = [
+        {specialism: "Developing", characteristics: "Small number of recorded materials and streams, no publishing, live gigs only" ,
+            values: [
+                [{val:-1,per:-1},{val:0,per:7},{val:100,per:6},{val:10000,per:0.00350806994},{val:5000,per:0.00055390578},{val:1,per:100},{val:0,per:50}],
+                [{val:-1,per:-1},{val:-1,per:3},{val:100,per:2},{val:10000,per:(0.00350806994*0.12)},{val:5000,per:(0.00055390578*0.12)},{val:1,per:100},{val:-1,per:50},{val:-1,per:50}],
+                [{val:-1,per:-1},{val:10,per:75},{val:2,per:100},{val:2,per:50},{val:2,per:150},{val:10,per:100}],
+                [{val:-1,per:10},{val:-1,per:75},{val:0,per:100},{val:0,per:50}],
+                [{val:-1,per:0},{val:-1,per:0},{val:0,per:0},{val:0,per:0}]            
+            ]
+        },
+        {specialism: "Emerging", characteristics: "Recorded and released album, more streams (30,000+), very small publishing, live gigs" ,
+            values: [
+            [{val:-1,per:5000},{val:100,per:7},{val:300,per:6},{val:1000000,per:0.00350806994},{val:500000,per:0.00055390578},{val:5,per:100},{val:20,per:50}],
+                [{val:-1,per:-1},{val:100,per:3},{val:300,per:2},{val:1000000,per:(0.00350806994*0.12)},{val:500000,per:(0.00055390578*0.12)},{val:10,per:100},{val:-1,per:50},{val:50,per:50}],
+                [{val:-1,per:-1},{val:10,per:100},{val:2,per:100},{val:2,per:50},{val:2,per:150},{val:10,per:100}],
+                [{val:-1,per:10},{val:0,per:200},{val:0,per:200},{val:0,per:100}],
+                [{val:-1,per:0},{val:-1,per:0},{val:0,per:0},{val:0,per:0}]     
+            ]
+        },
+        {specialism: "Experienced– mainly recorded", characteristics: "One largely successful release or multiple consistent sellers • Sales, radio and/or sync licensing • Touring venues (500-3k capacity) • Next release is anticipated by fans, press and industry" ,
+            values: [
+                [{val:1,per:7500},{val:300,per:7},{val:500,per:6},{val:1200000,per:0.00350806994},{val:1500000,per:0.00055390578},{val:5,per:200},{val:35,per:50}],
+                [{val:-1,per:3000},{val:300,per:3},{val:500,per:2},{val:1200000,per:(0.00350806994*0.12)},{val:1500000,per:(0.00055390578*0.12)},{val:10,per:200},{val:-1,per:50},{val:50,per:50}],
+                [{val:-1,per:-1},{val:12,per:200},{val:6,per:200},{val:2,per:50},{val:3,per:250},{val:5,per:100}],
+                [{val:-1,per:10},{val:-1,per:500},{val:1,per:500},{val:1,per:100}],
+                [{val:-1,per:0},{val:-1,per:0},{val:0,per:0},{val:0,per:0}]     
+            ]
+        },
+        {specialism: "Experienced – mainly live", characteristics: "One largely successful release or multiple consistent sellers • Sales, radio and/or sync licensing • Touring venues (500-3k capacity) • Next release is anticipated by fans, press and industry" ,
+            values: [
+            [{val:-1,per:5000},{val:200,per:7},{val:350,per:6},{val:1200000,per:0.00350806994},{val:1500000,per:0.00055390578},{val:0,per:200},{val:0,per:50}],
+                [{val:-1,per:1500},{val:400,per:3},{val:800,per:2},{val:1000000,per:(0.00350806994*0.12)},{val:2000000,per:(0.00055390578*0.12)},{val:10,per:200},{val:-1,per:50},{val:50,per:50}],
+                [{val:2,per:500},{val:9,per:350},{val:12,per:400},{val:3,per:150},{val:6,per:750},{val:5,per:100}],
+                [{val:150,per:10},{val:1,per:500},{val:1,per:500},{val:2,per:100}],
+                [{val:-1,per:0},{val:-1,per:0},{val:0,per:0},{val:0,per:0}]     
+            ]
+        },
+        {specialism: "Experienced – writer/producer", characteristics: "One largely successful release or multiple consistent sellers • Sales, radio and/or sync licensing • Touring venues (500-3k capacity) • Next release is anticipated by fans, press and industry" ,
+            values: [
+            [{val:-1,per:-1},{val:0,per:7},{val:0,per:6},{val:0,per:0.00350806994},{val:0,per:0.00055390578},{val:0,per:1},{val:0,per:50}],
+                [{val:1,per:10000},{val:500,per:3},{val:1000,per:2},{val:2000000,per:(0.00350806994*0.12)},{val:2000000,per:(0.00055390578*0.12)},{val:25,per:200},{val:50,per:200},{val:50,per:50}],
+                [{val:-1,per:500},{val:-1,per:400},{val:-1,per:400},{val:-1,per:150},{val:-1,per:750},{val:-1,per:100}],
+                [{val:-1,per:10},{val:-1,per:200},{val:0,per:200},{val:0,per:100}],
+                [{val:-1,per:0},{val:-1,per:0},{val:0,per:0},{val:0,per:0}]     
+            ]
+        },
+        
+    
+    ]
+  
+    //currently 15, 15, 4, 4, 5, 5 = 48
+    var data = [
+    {heading:"Recorded Music", current_total: 0, proposed_total: 0,
+        entries:[
+            {title:"Rec - Advance",                         color: colors[0], help: ""},
+            {title:"Rec - Album Vinyl ",                    color: colors[1], help: ""},
+            {title:"Rec - Album Sales (CD and Download)",   color: colors[2], help: ""},
+            {title:"Rec - Audio Streams",                   color: colors[3], help: ""},
+            {title:"Rec - Video Streams",                   color: colors[4], help: ""},
+            {title:"Rec - Sync",                            color: colors[5], help: ""},
+            {title:"PPL Royalties",                         color: colors[6], help: ""},
+            
+        ]
+    },
+    {heading:"Music Publishing", current_total: 0, proposed_total: 0,
+        entries: [
+            {title:"Pub - Advance",color: colors[0], help: ""},
+            {title:"Pub - Album Vinyl ",color: colors[0], help: ""},
+            {title:"Pub - Album Sales (CD and Download)",color: colors[0], help: ""},
+            {title:"Pub - Audio Streams",color: colors[0], help: ""},
+            {title:"Pub - Video Streams",color: colors[0], help: ""},
+            {title:"Pub - Sync",color: colors[0], help: ""},
+            {title:"Commissions",color: colors[0], help: ""},
+            {title:"PRS Royalties",color: colors[0], help: ""},
+        ]
+    },
+    {heading:"Live Music", current_total: 0, proposed_total: 0,
+        entries: [
+            {title:"Live Music",color: colors[0], help: ""},
+            {title:"International Tour",color: colors[0], help: ""},
+            {title:"Domestic Tour",color: colors[0], help: ""},
+            {title:"One off concerts",color: colors[0], help: ""},
+            {title:"Support slot",color: colors[0], help: ""},
+            {title:"Private shows",color: colors[0], help: ""},
+            {title:"Session ",color: colors[0], help: ""},
+
+        ]
+    },
+    {heading:"Brand and Image", current_total: 0, proposed_total: 0,
+        entries: [
+        {title:"Merchandise",color: colors[0], help: ""},
+ {title:"Brand Partnerships",color: colors[0], help: ""},
+ {title:"Sponsorships",color: colors[0], help: ""},
+ {title:"Influencer income",color: colors[0], help: ""},
+
+        ]
+    },
+    {heading:"Other Income", current_total: 0, proposed_total: 0,
+        entries: [
+        {title:"Crowdfunding",color: colors[0], help: ""},
+ {title:"Grants",color: colors[0], help: ""},
+ {title:"Gifts",color: colors[0], help: ""},
+ {title:"Investment",color: colors[0], help: ""},
+ {title:"Sub- Patreon",color: colors[0], help: ""},
+
+        ]
+    }
+]
+
+$( document ).ready(function() {
+    init()
+    pop()
+    if(target==-1){
+        fn_user_experience("target")
+    }else if(scenario ==-1){
+        fn_user_experience("career")
+    }else{
+        fn_user_experience("scenario")
+    }
+    //charting is coupled with updating the scenario which occurs as part of pop
+    //chart()
+
+    var tableToExcel = (function() {
+  var uri = 'data:application/vnd.ms-excel;base64,'
+    , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+  return function(table, name) {
+    if (!table.nodeType) table = document.getElementById(table)
+    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+    window.location.href = uri + base64(format(template, ctx))
+  }
+})()
+
+    //trigger tooltips
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    //listeners
+    $(".btn-scenario").click(function(e){
+        e.preventDefault()
+        scenario = this.id.replace("btn-scenario-", "");
+        //fn_user_experience("scenario")
+        fn_user_experience("current")
+    })
+    
+    $(".yesno").click(function(e){
+        e.preventDefault()
+
+        switch(this.id){
+            case "btn_1_yes":
+                $("#dv_yes_1").addClass("d-none")
+                $("#dv_no_1").addClass("d-none")
+                $("#dv_input_1").removeClass("d-none")
+                $("#dv_btn_1").removeClass("d-none")
+                break
+            case "btn_1_no":
+                $("#target_12").addClass("d-none")
+                $("#target_6").removeClass("d-none")
+                $("#target_1").addClass("d-none")
+                break
+            case "btn_2_yes":
+                $("#dv_yes_2").addClass("d-none")
+                $("#dv_no_2").addClass("d-none")
+                $("#dv_input_2").removeClass("d-none")
+                $("#dv_btn_2").removeClass("d-none")
+                break
+            case "btn_2_no":
+                $("#target_12").addClass("d-none")
+                $("#target_6").addClass("d-none")
+                $("#target_1").removeClass("d-none")
+                break
+            case "set_target1":
+                target=$("#target1").val()
+                fn_user_experience("career")
+                break
+            case "set_target2":
+                target=$("#target2").val() * 2
+                fn_user_experience("career")
+                break
+            case "set_target3":
+                target=$("#target3").val() * 12
+                fn_user_experience("career")
+                break
+        }
+    })
+
+    function fn_user_experience(experience){
+        //turn off all the divs (target, career, scenario)
+        t=$("#target_div"); t.addClass("d-none");
+        c=$("#career_div"); c.addClass("d-none");
+        s=$("#scenario_div"); s.addClass("d-none");
+        $(".target_this").addClass("d-none")
+        $(".scenario_this").addClass("d-none")
+        $(".current_this").addClass("d-none")
+        $(".proposed_this").addClass("d-none")
+        $(".career_this").addClass("d-none")
+        $(".proposed").addClass("d-none")
+
+        switch(experience){
+            case 'target':
+                //turn on the target div
+                t.removeClass("d-none"); 
+                $(".target_this").removeClass("d-none")
+            break
+            case 'scenario':
+                //turn on the scenario div
+                s.removeClass("d-none");
+                if(!bURLs){pop()}
+                $(".scenario_this").removeClass("d-none")
+            break
+
+            case 'current':
+                //turn on the scenario div
+                s.removeClass("d-none");
+                if(!bURLs){pop()}
+                $(".current_this").removeClass("d-none")
+                $(".current").attr("disabled",false)
+            break
+
+            case 'proposed':
+                //turn on the scenario div
+                s.removeClass("d-none");
+                if(!bURLs){pop()}
+                $(".proposed_this").removeClass("d-none")
+                $(".proposed").removeClass("d-none")
+                $(".current").attr("disabled",true)
+            break
+
+            case 'career':
+                //turn on the career div
+                c.removeClass("d-none");
+                $(".career_this").removeClass("d-none")
+            break
+            default:
+            break
+        }
+    }
+
+    $(".menus").click(function(){
+        clicked = this.id
+        if(clicked=="target"){ 
+            fn_user_experience("target")
+        }else if(clicked=="career"){ 
+            fn_user_experience("career")
+        }else if(clicked=="scenario"){  
+            fn_user_experience("scenario")
+        }else if(clicked=="current"){ 
+            fn_user_experience("current")
+        }else if(clicked=="proposed"){  
+            fn_user_experience("proposed")
+        }else if(clicked=="excel"){
+            fn_export_excel()
+        }else{
+            pop()
+            fn_scenario_update()
+        }
+    })
+
+    $(".toggle_section").click(function(){
+        var this_section = String(this.id.split("toggle_")[1])
+        var isShowing = $(".row_"+this_section).hasClass("d-none")
+        
+        var dv=$("#row_" + this_section)
+
+        //turn everything off
+        $(".toggle_section").removeClass("bi-dash-square").addClass("bi-plus-square")
+        $(".entry_row").addClass("d-none")
+        
+        //if we not already showing this section, turn it on
+        if(isShowing){
+            $("#toggle_"+this_section).addClass("bi-dash-square").removeClass("bi-plus-square")
+            $(".row_"+this_section).removeClass("d-none")
+        }
+    })
+
+    function fn_export_excel(){
+        var exp = $("#exportable_data")
+        var rl = $("#return_link")
+        var ci = $("#chart_img")
+        //wipe existing data
+        exp.html("")
+        var heading;
+        var row;
+        var cell;
+        var local;
+        var v=''
+        
+        /*
+        <th>Category</th>               
+        <th>Entry</th>                  
+        <th>£/unit</th>       
+        <th>Unts</th>  
+        <th>£/unit</th>       
+        <th>Unts</th>       
+        */
+
+        //populate the hidden table with all the data
+        for(s in data){
+            heading=data[s].heading
+            for(e in data[s].entries){
+                local=data[s].entries[e]
+                revperitem=''
+                val=''
+
+                row=$("<tr />")
+                cell=$("<td />").html(heading); row.append(cell)
+                cell=$("<td />").html(local.title); row.append(cell)
+                
+                per1=$("#per1_"+String(s)+"_"+String(e)).val()
+                per2=$("#per2_"+String(s)+"_"+String(e)).val()
+                val1=$("#val1_"+String(s)+"_"+String(e)).val()
+                val2=$("#val2_"+String(s)+"_"+String(e)).val()
+                tot1=$("#tot1_"+String(s)+"_"+String(e)).val()
+                tot2=$("#tot2_"+String(s)+"_"+String(e)).val()
+
+                hex1=''
+                if(Number.isInteger(parseInt(val1))){
+                    hex1=parseInt(val1).toString(16)
+                }
+                hex2=''
+                if(Number.isInteger(parseInt(val2))){
+                    hex2=parseInt(val2).toString(16)
+                }
+                
+                excel_row=parseInt(e)+4
+                cee="C"+excel_row
+                dee="D"+excel_row
+                eff="F"+excel_row
+                gee="G"+excel_row
+
+                cell=$("<td />").html(per1); row.append(cell);
+                cell=$("<td />").html(val1); row.append(cell);
+                //cell=$("<td />").html(tot1); row.append(cell);
+                //cell=$("<td />").html("=C"+String(parseInt(e+4))+"*D"+String(parseInt(e+4))); row.append(cell);
+                cell=$("<td />").html("="+cee+"*"+dee); row.append(cell);
+                cell=$("<td />").html(per2); row.append(cell);
+                cell=$("<td />").html(val2); row.append(cell);
+                cell=$("<td />").html("="+eff+"*"+gee); row.append(cell);
+                //cell=$("<td />").html(tot2); row.append(cell);
+                
+                exp.append(row)
+                v=v+String(per1)+delim+hex1+delim+String(per2)+delim+hex2+sep
+            }
+        }
+
+        //ci.html=$("#chart1").html()
+        //c1=document.getElementById("chart1")
+        //ci.html(c1.toDataURL())
+
+        //var c4 =$("#chart_img") // document.getElementById("chart_img");
+
+        //c4.attr("src",c1.toDataURL())
+        //var ctx4 = c4.getContext("2d");
+        //ctx4.drawImage(c1.toDataURL(), 0, 0, c1.width, c1.height); 
+
+        rl.html(window.location.origin+window.location.pathname+"?s="+String(scenario)+"&t="+String(parseInt(target).toString(16))+"&v="+v)
+        //$("#exportable").removeClass("d-none")
+        tableToExcel('exportable', 'Income Data')
+    }
+
+    function fn_floor(input){
+        if(input < 0){return 0}else{return input}
+    }
+
+    function chart(){
+
+        labels=["Current","Proposed"]
+        datasets=[]
+        current_total=0
+        proposed_total=0
+
+        for(datum in data){
+            current_total=current_total+data[datum].current_total;proposed_total=proposed_total+data[datum].proposed_total;
+            datasets.push({label: data[datum].heading, data: [data[datum].current_total,data[datum].proposed_total],  borderColor: colors[datum], backgroundColor: colors[datum]})
+        }
+        datasets.push({label: "Gap", data: [fn_floor(target - current_total), fn_floor(target-proposed_total)], borderWidth: [2,2],  borderColor: ["#FF0000","#FF0000"], backgroundColor: ["#efefeb","#FF0000"]})
+        //datasets.push({label: "Gap", data: [fn_floor(target - current_total), fn_floor(target-proposed_total)],  borderColor: "#FF0000", backgroundColor: "#FF0000"})
+
+        
+
+        fn_destroy_charts()
+        c1= new Chart(ctx1,{type: 'bar', 
+                data:{
+                    labels: labels, 
+                    datasets: datasets, 
+                   // pointBackgroundColor
+                },
+                plugins: [ChartDataLabels],
+                options:{
+                    locale: "en-UK",
+                    scales: {
+                        x:{stacked:true},
+                        y:{stacked:true, 
+                            ticks:{ 
+                                callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},
+                                font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
+                            },
+                        }
+                    },
+                    plugins: {
+                        legend:{
+                            display:true, position:'bottom',
+                            labels:{
+                                font:{size:10, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
+                            }
+                        },
+                        title:{
+                            display: false,
+                            font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
+                        },
+                        tooltip:{
+                            callbacks:{
+                                title: function(context){
+                                    return false
+                                },
+                                label: function(context){
+                                    let title = context.label;
+                                    let data = context.dataset.label
+                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
+                                    return title + " " + data + " " + String(value) 
+                                }
+                            }
+                        },
+                        datalabels: {display: false,
+                            formatter: function(value, context) {
+                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
+                            },
+                            labels: {
+                                title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}
+                            },
+                            anchor: "end", align: "end"
+                        } 
+                    }  
+                }
+            }    
+        )
+    }
+
+    function fn_scenario_update(){
+        //console.log("updating scenarios",scenario)
+
+        for(datum in data){
+            current_total=0
+            proposed_total=0
+            for(entry in data[datum].entries){
+
+                per1=$("#per1_"+String(datum)+"_"+String(entry)).val()
+                per2=$("#per2_"+String(datum)+"_"+String(entry)).val()
+                val1=$("#val1_"+String(datum)+"_"+String(entry)).val()
+                val2=$("#val2_"+String(datum)+"_"+String(entry)).val()
+                tot1=$("#tot1_"+String(datum)+"_"+String(entry))                
+                tot2=$("#tot2_"+String(datum)+"_"+String(entry))
+
+                if(Number.isNaN(Number.parseFloat(per1)) || Number.isNaN(Number.parseFloat(val1))){
+                    if(per1 != ""){
+                        //bad entry
+                        console.log("bad entry 1 ",per1, typeof per1, val1, typeof val1)
+                    }
+                    if(val1 != ""){
+                        //bad entry
+                        console.log("bad entry 2 ",per1, typeof per1, val1, typeof val1)
+                    }
+                    
+                }else{
+                    current_total = current_total + (per1 * val1)
+                    
+                    tot1.val((per1 * val1).toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+                }
+
+                if(Number.isNaN(Number.parseFloat(per2)) || Number.isNaN(Number.parseFloat(val2))){
+
+                    if(per2 != ""){
+                        //bad entry
+                        console.log("bad entry 1 ",per2, typeof per2, val2, typeof val2)
+                    }
+                    if(val2 != ""){
+                        //bad entry
+                        console.log("bad entry 2 ",per2, typeof per2, val2, typeof val2)
+                    }
+    
+                }else{
+                    proposed_total = proposed_total + (per2 * val2)
+                    tot2.val((per2 * val2).toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+                }
+            }
+            data[datum].current_total=current_total
+            data[datum].proposed_total=proposed_total
+
+            //console.log(data[datum].heading,current_total,proposed_total,$("#tot1_"+String(datum)))
+            $("#tot1_"+String(datum)).val(current_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))              
+            $("#tot2_"+String(datum)).val(proposed_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+        }
+        chart()
+    }
+
+
+    function fn_destroy_charts(){ 
+        if(typeof c1 != 'undefined'){
+                c1.destroy()
+            }
+            if(typeof c2 != 'undefined'){
+                c2.destroy()
+            }
+        }
+    
+    function pop(){
+                
+       if(scenario!=-1){
+            //which scenario has been selected?
+            this_scenario = scenarios[scenario]
+
+            //important that the scenario values follows the same data pattern as the data [15],[15],[4],[4],[5],[5] currently
+            for(i in this_scenario.values){
+                for(j in this_scenario.values[i]){
+                    this_couplet=this_scenario.values[i][j]
+
+                    per1=$("#per1_"+String(i)+"_"+String(j))
+                    per2=$("#per2_"+String(i)+"_"+String(j))
+                    tot1=$("#tot1_"+String(i)+"_"+String(j))
+                    tot2=$("#tot2_"+String(i)+"_"+String(j))
+                    val1=$("#val1_"+String(i)+"_"+String(j))
+                    val2=$("#val2_"+String(i)+"_"+String(j))
+                    if(this_couplet.val!=-1){
+                        per1.val(this_couplet.per)
+                        val1.val(this_couplet.val)
+                        tot1.val(this_couplet.per * this_couplet.val)
+                    }else{
+                        per1.val("")
+                        val1.val("")
+                        tot1.val("")
+                    }
+
+                    if(this_couplet.val!=-1){
+                        per2.val(this_couplet.per)
+                        val2.val(this_couplet.val)
+                        tot2.val(this_couplet.per * this_couplet.val)
+                    }else{
+                        per2.val("")
+                        val2.val("")
+                        tot2.val("")
+                    }
+                }
+            }
+        }
+
+        //lets override scenario based defaults with anything passed in the url
+
+        
+        //lets populate the values!
+        searchParams = new URLSearchParams(window.location.search);
+
+        couplets=[];
+        counter=0;
+        if(searchParams.has('v')){
+            bURLs=true
+            couplets = searchParams.get('v').split(sep)
+            for(i in data){
+                for(j in data[i].entries){
+
+                    if(couplets.length > counter+1){
+                    per1=$("#per1_"+String(i)+"_"+String(j))
+                    per2=$("#per2_"+String(i)+"_"+String(j))
+                    val1=$("#val1_"+String(i)+"_"+String(j))
+                    val2=$("#val2_"+String(i)+"_"+String(j))
+                    tot1=$("#tot1_"+String(i)+"_"+String(j))
+                    tot2=$("#tot2_"+String(i)+"_"+String(j))
+
+                    values=couplets[counter].split(delim)
+
+                    if(values.length>=3){if(values[3]!=""){     val2.val(parseInt(  values[3],16)); tot2.val(parseInt(  values[3],16)) * values[2]}else{ tot2.val("")}}
+                    if(values.length>=2){                       per2.val(           values[2]) }    
+                    if(values.length>=1){if(values[1]!=""){     val1.val(parseInt(  values[1],16)); tot1.val(parseInt(  values[1],16)) * values[0]}else{ tot1.val("")}}
+                                                                per1.val(           values[0])
+
+                    counter= counter+1
+                    }
+                }
+            }
+        }
+        
+        if(searchParams.has('s')){
+            scenario =  searchParams.get('s')
+            bURLs=true
+        }
+
+        if(searchParams.has('t')){
+            target =  parseInt(searchParams.get('t'),16)
+            bURLs=true
+        }
+
+        var clean_uri = location.protocol + "//" + location.host + location.pathname;
+        window.history.replaceState({}, document.title, clean_uri);
+
+        fn_scenario_update()//this will also take care of the totals
+
+        if(bURLs){fn_user_experience("scenario")}
+       
+
+    }
+   
+    function init(){
+        //where do we plug the headings into?
+        anchor = $("#contents")
+
+        //run through the data and set up the fields (no values)
+        for(datum in data){
+            
+            //we have a toggle within a span, attached to a h4 along with the actual heading text which is atte
+            div_row=$("<div>")
+                .attr("id","row_" + String(datum))
+                .addClass("row")
+                .addClass("mt-4")
+            
+            div_content=$("<div>")
+                .attr("id","row_c_" + String(datum))
+                .addClass("col-6")
+                
+            h4_text=$("<h4>")
+            span = $("<span>")
+                
+            toggle_text = $("<i>")
+                .addClass("bi toggle_section")
+                .attr("id","toggle_"+String(datum))
+                .html("&nbsp;")
+                .addClass("bi-plus-square")
+
+            span.append(toggle_text)
+            h4_text.append(span)
+            h4_text.append(data[datum].heading)
+            div_content.append(h4_text)
+
+            div_empty1= $("<div>").addClass("col-2")
+            div_empty2= $("<div>").addClass("col-2").addClass("proposed")
+
+            div_tot1=$("<div>").addClass("col-1")
+            div_tot2=$("<div>").addClass("col-1").addClass("proposed")
+
+
+                //"w-100 float-end text-end blur form-control-lg"
+            tot1 =$("<input />")
+                .attr("id","tot1_" + String(datum))
+                .attr("name","tot1_" + String(datum))
+                .addClass(input_standard_classes)
+                
+                
+                .attr("disabled",true)
+            tot2 =$("<input />")
+                .attr("id","tot2_" + String(datum))
+                .attr("name","tot2_" + String(datum))
+                .addClass(input_standard_classes)
+                
+                .attr("disabled",true)
+
+            div_tot1.append(tot1)
+            div_tot2.append(tot2)
+            
+
+            div_row.append(div_content).append(div_empty1).append(div_tot1).append(div_empty2).append(div_tot2)
+        
+            anchor.append(div_row)
+        
+            for(entry in data[datum].entries){
+
+                div_row=$("<div>")
+                    .attr("id","row_" + String(datum)+"_"+String(entry))
+                    .addClass("row")
+                    .addClass("row_"+String(datum))
+                    .addClass("entry_row")
+                    .addClass("d-none")
+                
+                all_cols =  "col-1"   
+                div_entry = $("<div>").addClass("col-6").addClass("text-nowrap")
+                div_per1 = $("<div>").addClass(all_cols)
+                div_per2 = $("<div>").addClass(all_cols).addClass("proposed")
+                div_tot1 = $("<div>").addClass(all_cols)
+                div_tot2 = $("<div>").addClass(all_cols).addClass("proposed")
+                div_val1 = $("<div>").addClass(all_cols).addClass("mr-4")
+                div_val2 = $("<div>").addClass(all_cols).addClass("proposed")
+
+                title=$("<span>")
+                    .html(data[datum].entries[entry].title)
+                div_entry.append(title)
+
+                info= $("<i>").addClass("bi bi-info-square mx-2")
+                    .attr("data-toggle","tooltip")
+                    .attr("data-placement","top")
+                    .attr("data-html","true")
+                    .attr("data-original-title",data[datum].entries[entry].help)
+                div_entry.append(info)
+
+                per1 =$("<input />")
+                    .attr("id","per1_" + String(datum)+"_"+String(entry))
+                    .attr("name","per1_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .addClass("current")
+                    .change(function(){fn_scenario_update()  })
+                div_per1.append(per1)
+
+                val1 =$("<input />")
+                    .attr("id","val1_" + String(datum)+"_"+String(entry))
+                    .attr("name","val1_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .addClass("current")
+                    .change(function(){fn_scenario_update()  })
+                div_val1.append(val1)
+
+                tot1 =$("<input />")
+                    .attr("id","tot1_" + String(datum)+"_"+String(entry))
+                    .attr("name","tot1_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .attr("disabled","disabled")
+                div_tot1.append(tot1)
+
+                per2 =$("<input />")
+                    .attr("id","per2_" + String(datum)+"_"+String(entry))
+                    .attr("name","per2_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .change(function(){fn_scenario_update()  })
+                div_per2.append(per2)
+
+                val2 =$("<input />")
+                    .attr("id","val2_" + String(datum)+"_"+String(entry))
+                    .attr("name","val2_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .change(function(){fn_scenario_update()  })
+                div_val2.append(val2)
+
+                tot2 =$("<input />")
+                    .attr("id","tot2_" + String(datum)+"_"+String(entry))
+                    .attr("name","tot2_" + String(datum)+"_"+String(entry))
+                    .addClass(input_standard_classes)
+                    .attr("disabled","disabled")
+                div_tot2.append(tot2)
+
+                div_row.append(div_entry).append(div_per1).append(div_val1).append(div_tot1).append(div_per2).append(div_val2).append(div_tot2)
+                anchor.append(div_row)
+            }
+            
+        }
+    }
+
+});
+</script>
+</body>
+</html>
