@@ -9,8 +9,8 @@
     <title>Help Musicians | Income Tool</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" rel="stylesheet" >
-    <link href="https://www.helpmusicians.org.uk/dist/styles/main.css?ts=1714475339" rel="stylesheet" >
-    <link href="https://www.helpmusicians.org.uk/cpresources/376204a4/formie-base.css?v=1714475455" rel="stylesheet">
+    <link href="main.css" rel="stylesheet" >
+    <link href="formie-base.css" rel="stylesheet">
     <style>
         .dropdown-menu {
             --bs-dropdown-link-active-bg: #6d30cb;
@@ -21,7 +21,64 @@
         #btn-scenario-0, #btn-scenario-1, #btn-scenario-2, #btn-scenario-3, #btn-scenario-4 {
             background-color: #FEF200 !important;
             border-color: #FEF200 !important;
-            
+        }
+        .no_break{
+            display:inline !important;
+        }
+
+        .pretend_disabled{
+            background-color:rgba(239, 239, 239, 0.3);
+border-bottom-color:rgba(118, 118, 118, 0.3);
+border-bottom-left-radius:5px;
+border-bottom-right-radius:5px;
+border-bottom-style:inset;
+border-bottom-width:1.6px;
+border-image-outset:0;
+border-image-repeat:stretch;
+border-image-slice:100%;
+border-image-source:none;
+border-image-width:1;
+border-left-color:rgba(118, 118, 118, 0.3);
+border-left-style:inset;
+border-left-width:1.6px;
+border-right-color:rgba(118, 118, 118, 0.3);
+border-right-style:inset;
+border-right-width:1.6px;
+border-top-color:rgba(118, 118, 118, 0.3);
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+border-top-style:inset;
+border-top-width:1.6px;
+box-sizing:border-box;
+color:rgb(84, 84, 84);
+cursor:default;
+display:block;
+float:right;
+font-size:12.5px;
+font-stretch:100%;
+font-weight:400;
+height:30.75px;
+line-height:14.375px;
+margin-bottom:0px;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+min-height:30.75px;
+overflow-x:visible;
+overflow-y:visible;
+padding-block-end:5px;
+padding-block-start:5px;
+padding-bottom:5px;
+padding-inline-end:10px;
+padding-inline-start:10px;
+padding-left:10px;
+padding-right:10px;
+padding-top:5px;
+text-align:right;
+text-indent:0px;
+
+
+
         }
 
     </style>
@@ -29,12 +86,10 @@
 <!--//'#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636',-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
 </head>
 <body>
@@ -52,141 +107,149 @@
                     <span class="visually-hidden">Menu</span>
                 </button>
             </div>
-        </div>               
+        </div>            
 
         <nav class="site-header__nav" aria-label="Main" id="mainNav">
             <ul role="menu" class="main-nav navbar-nav mr-auto" id="dd">
                 <li>&nbsp;</li>
-            
                 <li role="none" class="main-nav__top-level-li">
-                    <a id="target" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill target_this"></i><span>Target</span><i class="bi bi-caret-left-fill target_this"></i></a>
+                    <a id="a_intro" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill intro_menu these_menus"></i><span>Intro</span><i class="bi bi-caret-left-fill intro_menu these_menus"></i></a>
                 </li>
                 <li role="none" class="main-nav__top-level-li">
-                    <a id="career" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill career_this"></i><span>Career</span><i class="bi bi-caret-left-fill career_this"></i></a>
+                    <a id="a_current" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill current_menu these_menus"></i><span>Current<!-- Income--></span><i class="bi bi-caret-left-fill current_menu these_menus"></i></a>
                 </li>
                 <li role="none" class="main-nav__top-level-li">
-                    <a id="current" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill current_this"></i><span>Current</span><i class="bi bi-caret-left-fill current_this"></i></a>
+                    <a id="a_summary" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill summary_menu these_menus"></i><span>Summary</span><i class="bi bi-caret-left-fill summary_menu these_menus"></i></a>
                 </li>
                 <li role="none" class="main-nav__top-level-li">
-                    <a id="proposed" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill proposed_this"></i><span>Proposed</span><i class="bi bi-caret-left-fill proposed_this"></i></a>
+                    <a id="a_target" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill target_menu these_menus"></i><span>Target</span><i class="bi bi-caret-left-fill target_menu these_menus"></i></a>
                 </li>
                 <li role="none" class="main-nav__top-level-li">
-                    <a id="excel" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><span>Export to Excel</span></a>
+                    <a id="a_tinker" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill tinker_menu these_menus"></i><span>Plan</span><i class="bi bi-caret-left-fill tinker_menu these_menus"></i></a>
                 </li>
-         
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="a_compare" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill compare_menu these_menus"></i><span>Compare</span><i class="bi bi-caret-left-fill compare_menu these_menus"></i></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="a_excel" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><span>Export to Excel</span></a>
+                </li>
+                <li role="none" class="main-nav__top-level-li">
+                    <a id="a_next" role="menuitem" tabindex="0" class="main-nav__top-level-a menus" href="#"><i class="bi bi-caret-right-fill next_menu these_menus"></i><span>Next Steps</span><i class="bi bi-caret-left-fill next_menu these_menus"></i></a>
+                </li>
              </ul>
-         </nav>
-                 
+         </nav>   
   </header>
 
+
   <form id="frm" method="post" class="form-floating">
+  <div id="page_content" class="container-fluid">
 
-  <div id="target_div" class="container-fluid d-none">
-    <div class="row"><h4>Setting Your Target</h4></div>
-    <div class="row" id="target_12">
-        <div class="col-9">Do you know how much you want to earn from music in the next <strong>12 months</strong>?</div>
-        <div id="dv_yes_1" class="col-2"><button id="btn_1_yes" type="button" class="btn btn-lg btn-primary yesno">Yes</button></div>
-        <div id="dv_no_1" class="col-1"><button id="btn_1_no" type="button" class="btn btn-lg btn-danger yesno">No</button></div>
-        <div id="dv_input_1" class="col-2 d-none"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target1" id="target1" value="20000"></div>
-        <div id="dv_btn_1" class="col-1 d-none"><button type="button" class="btn btn-lg btn-success yesno" id="set_target1">Set Target</button></div>
+    <div id="intro_content" class="container div_content">
+        <div class="row">
+            <div class="col-12">
+                <h4>Introductory Heading</h4>
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                <h4>Introductory Heading</h4>
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+                Introductory content goes here Introductory content goes here 
+            </div>
+           
+        </div>
     </div>
-    <div class="row d-none" id="target_6">
-        <div class="col-9">Do you know how much you want to earn from music in the next <strong>6 months</strong>?</div>
-        <div id="dv_yes_2" class="col-2"><button id="btn_2_yes" type="button" class="btn btn-lg btn-primary yesno">Yes</button></div>
-        <div id="dv_no_2" class="col-1"><button id="btn_2_no" type="button" class="btn btn-lg btn-danger yesno">No</button></div>
-        <div id="dv_input_2" class="col-2 d-none"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target2" id="target2" value="10000"></div>
-        <div id="dv_btn_2" class="col-1 d-none"><button type="button" class="btn btn-lg btn-success yesno" id="set_target2">Set Target</button></div>
-    </div>
-    <div class="row d-none" id="target_1">
-        <div class="col-9">How much do you earn from music <strong>each month</strong> now?</div>
-        <div id="dv_input_3" class="col-2"><input type="text" class="w-100 float-end text-end blur form-control-lg" name="target3" id="target3" value="100"></div>
-        <div id="dv_btn_3" class="col-1"><button type="button" class="btn btn-lg btn-success yesno" id="set_target3">Set Target</button></div>
-    </div>
-  </div>
 
-  <div id="career_div" class="container-fluid d-none">
-    <div class="row"><div class="col-12 mx-4 my-4"><h4>Setting the Career Stage</h4></div></div>
-    <div class="row"><div class="col-12 mx-4 my-4">Which scenario best describes your career to date?</div></div>
-    <div id="scenario_heading_1" class="row mt-4 bg-primary text-light">
-        <div class="col-6">Stage one: early stage, no specialism</div>
-        <div class="col-6">Characteristics:</div>
-    </div>
-    <div class="row mx-4 my-4">
-        <div class="col-2">Scenario 1: </div>
-        <div class="col-3"><button id="btn-scenario-0" type="button" class="btn btn-scenario w-100 btn-lg">Developing</button></div>
-        <div class="col-1">&nbsp</div>
-        <div class="col-6">Small number of recorded materials and
-            streams, no publishing, live gigs only</div>
-    </div>
-    <div class="row mx-4 my-4">
-        <div class="col-2">Scenario 2: </div>
-        <div class="col-3"><button id="btn-scenario-1" type="button" class="btn btn-scenario w-100 btn-lg">Emerging</button></div>
-        <div class="col-1">&nbsp</div>
-        <div class="col-6">Emerging Recorded and released album, more streams
-            (30,000+), very small publishing, live gigs</div>
-    </div>
-    <div id="scenario_heading_2" class="row mt-4 bg-primary text-light">
-        <div class="col-6">Stage two: some specialism </div>
-        <div class="col-6">Characteristics:</div>
-    </div>
-    <div class="row">
-        <div class="col-6"> 
-            <div class="row mx-4 my-4">
-                <div class="col-4">Scenario 3:</div>
-                <div class="col-6"><button id="btn-scenario-2" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– mainly recorded</button> </div>
-            </div>
-            <div class="row mx-4 my-4">
-                <div class="col-4">Scenario 4:</div>
-                <div class="col-6"><button id="btn-scenario-3" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– mainly live</button> </div>
-            </div>
-            <div class="row mx-4 my-4">
-                <div class="col-4">Scenario 5:</div>
-                <div class="col-6"><button id="btn-scenario-4" type="button" class="btn btn-scenario w-100 btn-lg">Experienced– writer/producer</button> </div>            
+    <div id="next_content" class="container div_content">
+        <div class="row">
+            <div class="col-12">
+                <h4>Next Steps Heading</h4>
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                <h4>Next Steps Heading</h4>
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here
+                Next steps content goes here Next steps content goes here 
+                Next steps content goes here Next steps content goes here 
             </div>
         </div>
-            <div class="col-6 mt-3">
-                <ul>
-                    <li>One largely successful release or multiple consistent sellers</li>
-                    <li>Sales, radio and/or sync licensing</li>
-                    <li>Touring venues (500-3k capacity)</li>
-                    <li>Next release is anticipated by fans, press and industry</li>
-                </ul>
-            </div>
-        </div>    
     </div>
- 
- 
-  
-
-  <div id="scenario_div" class="container-fluid d-none">
-    <div class="row">
-        <div class="col-8">
-            <div class="container" id="contents">
-                <div class="row">
-                    <div class="col-6">&nbsp;</div>
-                    <div class="col-3 text-center mr-4"><h4>Current</h4></div>
-                    <div class="col-3 text-center proposed"><h4>Proposed</h4></div>
-                </div>
-                <div class="row">
-                    <div class="col-6"></div>
-                    <div class="col-1 text-center">£/unit</div>
-                    <div class="col-1 text-center">Units</div>
-                    <div class="col-1 text-center">Total</div>
-                    <div class="col-1 text-center proposed">£/unit</div>
-                    <div class="col-1 text-center proposed">Units</div>
-                    <div class="col-1 text-center proposed">Total</div>
-
-                </div>
+    
+    <div id="target_content" class="container div_content">
+        <div class="row">
+            <div class="col-12"><h4>Target</h4></div>
+        </div>
+        <div class="row">
+            <div class="col-6">How much you want to earn in the next 12 months?</div>
+            <div class="col-2" id="target_input_div"></div>
+            <div class="col-2" id="target_button_div">
+                <button type="button" id="btn_target" class="btn btn-primary"">Set Target</button>
             </div>
         </div>
-        <div class="col-4">
-            <canvas id="chart1" width="200" height="300"></canvas>
-        </div>        
-    </div>
-  </div>
-</form>
+    </div> 
 
-<!--export to excel table  -->
+    <div id="summary_content" class="container div_content">
+        <div class="row">
+            <div class="col-12"><canvas id="chart1" width="1200" height="300"></canvas></div>
+        </div>
+    </div> 
+
+    <div id="compare_content" class="container div_content">
+        <div class="row the_one">
+            <div class="col-12"><canvas id="chart0" width="1200" height="600"></canvas></div>
+        </div>
+        <div class="row the_four">
+            <div class="col-6"><canvas id="chart2" width="400" height="400"></canvas></div>
+            <div class="col-6"><canvas id="chart3" width="400" height="400"></canvas></div>
+        </div>
+        <div class="row the_four">
+            <div class="col-6"><canvas id="chart4" width="400" height="400"></canvas></div>
+            <div class="col-6"><canvas id="chart5" width="400" height="400"></canvas></div>
+        </div>
+    </div> 
+
+    <div id="current_content" class="container div_content">
+         <!-- dynamic content hopefully gets loaded here -->
+    </div>
+
+    <div id="chart_content" class="container div_content">
+        <div id="tinker_chart" class="row ">
+            <div class="col-12"><canvas id="chart6" width="800" height="800"></canvas></div>
+        </div>
+    </div>
+
+   
+   
+
+    <!--export to excel table  -->
 <table id="exportable" summary="Table Summary" rules="groups" frame="hsides" border="2" class="d-none" >
     <caption>Help Musicians Earnings Model Data Export</caption>
     <thead valign="top">
@@ -211,26 +274,34 @@
     </tr>
     </tbody>
     <tfoot>
-        <!--tr>
-            <td colspan="6" ><img id="chart_img"></td>
-        </tr-->
         <tr>
             <td colspan="6" id="return_link"></td>
         </tr>
     </tfoot>
 </table>
 <!--export to excel table -->
-  
+    
+
+
+  </div>
+  </form>
 
   <script>
     var input_standard_classes = "w-100 float-end text-end blur form-control-lg"//w-75
     var input_text_classes = "w-75 blur form-control-lg"
-    var target = -1
+    var page = "Intro"
     var scenario = -1
     var delim='|'
     var sep='~'
     var bURLs=false
+    var ctx0 = document.getElementById("chart0").getContext("2d");
     var ctx1 = document.getElementById("chart1").getContext("2d");
+    var ctx2 = document.getElementById("chart2").getContext("2d");
+    var ctx3 = document.getElementById("chart3").getContext("2d");
+    var ctx4 = document.getElementById("chart4").getContext("2d");
+    var ctx5 = document.getElementById("chart5").getContext("2d");
+    var ctx6 = document.getElementById("chart6").getContext("2d");
+    var target=0;
 
     var colors = [  
                 '#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636',
@@ -295,7 +366,7 @@
     var data = [
     {heading:"Recorded Music", current_total: 0, proposed_total: 0,
         entries:[
-            {title:"Rec - Advance",                         color: colors[0], help: ""},
+            {title:"Rec - Advance",                         color: colors[0], help: "Example of help information to prove the I box works"},
             {title:"Rec - Album Vinyl ",                    color: colors[1], help: ""},
             {title:"Rec - Album Sales (CD and Download)",   color: colors[2], help: ""},
             {title:"Rec - Audio Streams",                   color: colors[3], help: ""},
@@ -331,426 +402,50 @@
     },
     {heading:"Brand and Image", current_total: 0, proposed_total: 0,
         entries: [
-        {title:"Merchandise",color: colors[0], help: ""},
- {title:"Brand Partnerships",color: colors[0], help: ""},
- {title:"Sponsorships",color: colors[0], help: ""},
- {title:"Influencer income",color: colors[0], help: ""},
-
+            {title:"Merchandise",color: colors[0], help: ""},
+            {title:"Brand Partnerships",color: colors[0], help: ""},
+            {title:"Sponsorships",color: colors[0], help: ""},
+            {title:"Influencer income",color: colors[0], help: ""},
         ]
     },
     {heading:"Other Income", current_total: 0, proposed_total: 0,
         entries: [
-        {title:"Crowdfunding",color: colors[0], help: ""},
- {title:"Grants",color: colors[0], help: ""},
- {title:"Gifts",color: colors[0], help: ""},
- {title:"Investment",color: colors[0], help: ""},
- {title:"Sub- Patreon",color: colors[0], help: ""},
-
+            {title:"Crowdfunding",color: colors[0], help: ""},
+            {title:"Grants",color: colors[0], help: ""},
+            {title:"Gifts",color: colors[0], help: ""},
+            {title:"Investment",color: colors[0], help: ""},
+            {title:"Sub- Patreon",color: colors[0], help: ""},
         ]
     }
 ]
 
 $( document ).ready(function() {
-    init()
+
+    //hide all the menu indicators
+    $(".these_menus").addClass("d-none")
+
+    //hide all the content
+    $(".div_content").addClass("d-none")
+
+    //turn on the intro menu and content
+    $(".intro_menu").removeClass("d-none");$("#intro_content").removeClass("d-none")
+
+    //create the current form
+    fn_construct_current()
+
+    //check for url parameters
     pop()
-    if(target==-1){
-        fn_user_experience("target")
-    }else if(scenario ==-1){
-        fn_user_experience("career")
-    }else{
-        fn_user_experience("scenario")
-    }
-    //charting is coupled with updating the scenario which occurs as part of pop
-    //chart()
 
-    var tableToExcel = (function() {
-  var uri = 'data:application/vnd.ms-excel;base64,'
-    , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
-    , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
-    , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
-  return function(table, name) {
-    if (!table.nodeType) table = document.getElementById(table)
-    var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
-    window.location.href = uri + base64(format(template, ctx))
-  }
-})()
+    //are we wanting a single chart with four entries or four seperate charts?
+    //$(".the_one").addClass("d-none")
+    $(".the_four").addClass("d-none")
 
-    //trigger tooltips
-    $(function(){
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
-    //listeners
-    $(".btn-scenario").click(function(e){
-        e.preventDefault()
-        scenario = this.id.replace("btn-scenario-", "");
-        //fn_user_experience("scenario")
-        fn_user_experience("current")
-    })
-    
-    $(".yesno").click(function(e){
-        e.preventDefault()
-
-        switch(this.id){
-            case "btn_1_yes":
-                $("#dv_yes_1").addClass("d-none")
-                $("#dv_no_1").addClass("d-none")
-                $("#dv_input_1").removeClass("d-none")
-                $("#dv_btn_1").removeClass("d-none")
-                break
-            case "btn_1_no":
-                $("#target_12").addClass("d-none")
-                $("#target_6").removeClass("d-none")
-                $("#target_1").addClass("d-none")
-                break
-            case "btn_2_yes":
-                $("#dv_yes_2").addClass("d-none")
-                $("#dv_no_2").addClass("d-none")
-                $("#dv_input_2").removeClass("d-none")
-                $("#dv_btn_2").removeClass("d-none")
-                break
-            case "btn_2_no":
-                $("#target_12").addClass("d-none")
-                $("#target_6").addClass("d-none")
-                $("#target_1").removeClass("d-none")
-                break
-            case "set_target1":
-                target=$("#target1").val()
-                fn_user_experience("career")
-                break
-            case "set_target2":
-                target=$("#target2").val() * 2
-                fn_user_experience("career")
-                break
-            case "set_target3":
-                target=$("#target3").val() * 12
-                fn_user_experience("career")
-                break
-        }
-    })
-
-    function fn_user_experience(experience){
-        //turn off all the divs (target, career, scenario)
-        t=$("#target_div"); t.addClass("d-none");
-        c=$("#career_div"); c.addClass("d-none");
-        s=$("#scenario_div"); s.addClass("d-none");
-        $(".target_this").addClass("d-none")
-        $(".scenario_this").addClass("d-none")
-        $(".current_this").addClass("d-none")
-        $(".proposed_this").addClass("d-none")
-        $(".career_this").addClass("d-none")
-        $(".proposed").addClass("d-none")
-
-        switch(experience){
-            case 'target':
-                //turn on the target div
-                t.removeClass("d-none"); 
-                $(".target_this").removeClass("d-none")
-            break
-            case 'scenario':
-                //turn on the scenario div
-                s.removeClass("d-none");
-                if(!bURLs){pop()}
-                $(".scenario_this").removeClass("d-none")
-            break
-
-            case 'current':
-                //turn on the scenario div
-                s.removeClass("d-none");
-                if(!bURLs){pop()}
-                $(".current_this").removeClass("d-none")
-                $(".current").attr("disabled",false)
-            break
-
-            case 'proposed':
-                //turn on the scenario div
-                s.removeClass("d-none");
-                if(!bURLs){pop()}
-                $(".proposed_this").removeClass("d-none")
-                $(".proposed").removeClass("d-none")
-                $(".current").attr("disabled",true)
-            break
-
-            case 'career':
-                //turn on the career div
-                c.removeClass("d-none");
-                $(".career_this").removeClass("d-none")
-            break
-            default:
-            break
-        }
-    }
-
-    $(".menus").click(function(){
-        clicked = this.id
-        if(clicked=="target"){ 
-            fn_user_experience("target")
-        }else if(clicked=="career"){ 
-            fn_user_experience("career")
-        }else if(clicked=="scenario"){  
-            fn_user_experience("scenario")
-        }else if(clicked=="current"){ 
-            fn_user_experience("current")
-        }else if(clicked=="proposed"){  
-            fn_user_experience("proposed")
-        }else if(clicked=="excel"){
-            fn_export_excel()
-        }else{
-            pop()
-            fn_scenario_update()
-        }
-    })
-
-    $(".toggle_section").click(function(){
-        var this_section = String(this.id.split("toggle_")[1])
-        var isShowing = $(".row_"+this_section).hasClass("d-none")
-        
-        var dv=$("#row_" + this_section)
-
-        //turn everything off
-        $(".toggle_section").removeClass("bi-dash-square").addClass("bi-plus-square")
-        $(".entry_row").addClass("d-none")
-        
-        //if we not already showing this section, turn it on
-        if(isShowing){
-            $("#toggle_"+this_section).addClass("bi-dash-square").removeClass("bi-plus-square")
-            $(".row_"+this_section).removeClass("d-none")
-        }
-    })
-
-    function fn_export_excel(){
-        var exp = $("#exportable_data")
-        var rl = $("#return_link")
-        var ci = $("#chart_img")
-        //wipe existing data
-        exp.html("")
-        var heading;
-        var row;
-        var cell;
-        var local;
-        var v=''
-        
-        /*
-        <th>Category</th>               
-        <th>Entry</th>                  
-        <th>£/unit</th>       
-        <th>Unts</th>  
-        <th>£/unit</th>       
-        <th>Unts</th>       
-        */
-
-        //populate the hidden table with all the data
-        for(s in data){
-            heading=data[s].heading
-            for(e in data[s].entries){
-                local=data[s].entries[e]
-                revperitem=''
-                val=''
-
-                row=$("<tr />")
-                cell=$("<td />").html(heading); row.append(cell)
-                cell=$("<td />").html(local.title); row.append(cell)
-                
-                per1=$("#per1_"+String(s)+"_"+String(e)).val()
-                per2=$("#per2_"+String(s)+"_"+String(e)).val()
-                val1=$("#val1_"+String(s)+"_"+String(e)).val()
-                val2=$("#val2_"+String(s)+"_"+String(e)).val()
-                tot1=$("#tot1_"+String(s)+"_"+String(e)).val()
-                tot2=$("#tot2_"+String(s)+"_"+String(e)).val()
-
-                hex1=''
-                if(Number.isInteger(parseInt(val1))){
-                    hex1=parseInt(val1).toString(16)
-                }
-                hex2=''
-                if(Number.isInteger(parseInt(val2))){
-                    hex2=parseInt(val2).toString(16)
-                }
-                
-                excel_row=parseInt(e)+4
-                cee="C"+excel_row
-                dee="D"+excel_row
-                eff="F"+excel_row
-                gee="G"+excel_row
-
-                cell=$("<td />").html(per1); row.append(cell);
-                cell=$("<td />").html(val1); row.append(cell);
-                //cell=$("<td />").html(tot1); row.append(cell);
-                //cell=$("<td />").html("=C"+String(parseInt(e+4))+"*D"+String(parseInt(e+4))); row.append(cell);
-                cell=$("<td />").html("="+cee+"*"+dee); row.append(cell);
-                cell=$("<td />").html(per2); row.append(cell);
-                cell=$("<td />").html(val2); row.append(cell);
-                cell=$("<td />").html("="+eff+"*"+gee); row.append(cell);
-                //cell=$("<td />").html(tot2); row.append(cell);
-                
-                exp.append(row)
-                v=v+String(per1)+delim+hex1+delim+String(per2)+delim+hex2+sep
-            }
-        }
-
-        //ci.html=$("#chart1").html()
-        //c1=document.getElementById("chart1")
-        //ci.html(c1.toDataURL())
-
-        //var c4 =$("#chart_img") // document.getElementById("chart_img");
-
-        //c4.attr("src",c1.toDataURL())
-        //var ctx4 = c4.getContext("2d");
-        //ctx4.drawImage(c1.toDataURL(), 0, 0, c1.width, c1.height); 
-
-        rl.html(window.location.origin+window.location.pathname+"?s="+String(scenario)+"&t="+String(parseInt(target).toString(16))+"&v="+v)
-        //$("#exportable").removeClass("d-none")
-        tableToExcel('exportable', 'Income Data')
-    }
-
-    function fn_floor(input){
-        if(input < 0){return 0}else{return input}
-    }
-
-    function chart(){
-
-        labels=["Current","Proposed"]
-        datasets=[]
-        current_total=0
-        proposed_total=0
-
-        for(datum in data){
-            current_total=current_total+data[datum].current_total;proposed_total=proposed_total+data[datum].proposed_total;
-            datasets.push({label: data[datum].heading, data: [data[datum].current_total,data[datum].proposed_total],  borderColor: colors[datum], backgroundColor: colors[datum]})
-        }
-        datasets.push({label: "Gap", data: [fn_floor(target - current_total), fn_floor(target-proposed_total)], borderWidth: [2,2],  borderColor: ["#FF0000","#FF0000"], backgroundColor: ["#efefeb","#FF0000"]})
-        //datasets.push({label: "Gap", data: [fn_floor(target - current_total), fn_floor(target-proposed_total)],  borderColor: "#FF0000", backgroundColor: "#FF0000"})
-
-        
-
-        fn_destroy_charts()
-        c1= new Chart(ctx1,{type: 'bar', 
-                data:{
-                    labels: labels, 
-                    datasets: datasets, 
-                   // pointBackgroundColor
-                },
-                plugins: [ChartDataLabels],
-                options:{
-                    locale: "en-UK",
-                    scales: {
-                        x:{stacked:true},
-                        y:{stacked:true, 
-                            ticks:{ 
-                                callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},
-                                font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
-                            },
-                        }
-                    },
-                    plugins: {
-                        legend:{
-                            display:true, position:'bottom',
-                            labels:{
-                                font:{size:10, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
-                            }
-                        },
-                        title:{
-                            display: false,
-                            font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},
-                        },
-                        tooltip:{
-                            callbacks:{
-                                title: function(context){
-                                    return false
-                                },
-                                label: function(context){
-                                    let title = context.label;
-                                    let data = context.dataset.label
-                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
-                                    return title + " " + data + " " + String(value) 
-                                }
-                            }
-                        },
-                        datalabels: {display: false,
-                            formatter: function(value, context) {
-                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
-                            },
-                            labels: {
-                                title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}
-                            },
-                            anchor: "end", align: "end"
-                        } 
-                    }  
-                }
-            }    
-        )
-    }
-
-    function fn_scenario_update(){
-        //console.log("updating scenarios",scenario)
-
-        for(datum in data){
-            current_total=0
-            proposed_total=0
-            for(entry in data[datum].entries){
-
-                per1=$("#per1_"+String(datum)+"_"+String(entry)).val()
-                per2=$("#per2_"+String(datum)+"_"+String(entry)).val()
-                val1=$("#val1_"+String(datum)+"_"+String(entry)).val()
-                val2=$("#val2_"+String(datum)+"_"+String(entry)).val()
-                tot1=$("#tot1_"+String(datum)+"_"+String(entry))                
-                tot2=$("#tot2_"+String(datum)+"_"+String(entry))
-
-                if(Number.isNaN(Number.parseFloat(per1)) || Number.isNaN(Number.parseFloat(val1))){
-                    if(per1 != ""){
-                        //bad entry
-                        console.log("bad entry 1 ",per1, typeof per1, val1, typeof val1)
-                    }
-                    if(val1 != ""){
-                        //bad entry
-                        console.log("bad entry 2 ",per1, typeof per1, val1, typeof val1)
-                    }
-                    
-                }else{
-                    current_total = current_total + (per1 * val1)
-                    
-                    tot1.val((per1 * val1).toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
-                }
-
-                if(Number.isNaN(Number.parseFloat(per2)) || Number.isNaN(Number.parseFloat(val2))){
-
-                    if(per2 != ""){
-                        //bad entry
-                        console.log("bad entry 1 ",per2, typeof per2, val2, typeof val2)
-                    }
-                    if(val2 != ""){
-                        //bad entry
-                        console.log("bad entry 2 ",per2, typeof per2, val2, typeof val2)
-                    }
-    
-                }else{
-                    proposed_total = proposed_total + (per2 * val2)
-                    tot2.val((per2 * val2).toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
-                }
-            }
-            data[datum].current_total=current_total
-            data[datum].proposed_total=proposed_total
-
-            //console.log(data[datum].heading,current_total,proposed_total,$("#tot1_"+String(datum)))
-            $("#tot1_"+String(datum)).val(current_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))              
-            $("#tot2_"+String(datum)).val(proposed_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
-        }
-        chart()
-    }
-
-
-    function fn_destroy_charts(){ 
-        if(typeof c1 != 'undefined'){
-                c1.destroy()
-            }
-            if(typeof c2 != 'undefined'){
-                c2.destroy()
-            }
-        }
-    
+    /*---------------------------------------------------------------------------------------------------
+    ------------------------------------------    functions    ------------------------------------------
+    -----------------------------------------------------------------------------------------------------*/
     function pop(){
                 
-       if(scenario!=-1){
+        if(scenario!=-1){
             //which scenario has been selected?
             this_scenario = scenarios[scenario]
 
@@ -790,7 +485,7 @@ $( document ).ready(function() {
 
         //lets override scenario based defaults with anything passed in the url
 
-        
+
         //lets populate the values!
         searchParams = new URLSearchParams(window.location.search);
 
@@ -803,26 +498,58 @@ $( document ).ready(function() {
                 for(j in data[i].entries){
 
                     if(couplets.length > counter+1){
-                    per1=$("#per1_"+String(i)+"_"+String(j))
-                    per2=$("#per2_"+String(i)+"_"+String(j))
-                    val1=$("#val1_"+String(i)+"_"+String(j))
-                    val2=$("#val2_"+String(i)+"_"+String(j))
-                    tot1=$("#tot1_"+String(i)+"_"+String(j))
-                    tot2=$("#tot2_"+String(i)+"_"+String(j))
+                        per1=$("#per1_"+String(i)+"_"+String(j))
+                        per2=$("#per2_"+String(i)+"_"+String(j))
+                        val1=$("#val1_"+String(i)+"_"+String(j))
+                        val2=$("#val2_"+String(i)+"_"+String(j))
+                        tot1=$("#tot1_"+String(i)+"_"+String(j))
+                        tot2=$("#tot2_"+String(i)+"_"+String(j))
 
-                    values=couplets[counter].split(delim)
+                        values=couplets[counter].split(delim)
 
-                    if(values.length>=3){if(values[3]!=""){     val2.val(parseInt(  values[3],16)); tot2.val(parseInt(  values[3],16)) * values[2]}else{ tot2.val("")}}
-                    if(values.length>=2){                       per2.val(           values[2]) }    
-                    if(values.length>=1){if(values[1]!=""){     val1.val(parseInt(  values[1],16)); tot1.val(parseInt(  values[1],16)) * values[0]}else{ tot1.val("")}}
-                                                                per1.val(           values[0])
+                       /*
 
-                    counter= counter+1
+                        if(values.length>=3){
+                            if(values[3]!=""){     
+                                val2.val(parseInt(  values[3],16)); 
+                                tot2.val(parseInt(  values[3],16)) * values[2]
+                            }else{ 
+                                tot2.val("")
+                            }
+                        }
+                        if(values.length>=2){                       
+                            per2.val(values[2]) 
+                        }    
+                        if(values.length>=1){
+                            if(values[1]!=""){     
+                                val1.val(parseInt(  values[1],16)); 
+                                tot1.val(parseInt(  values[1],16)) * values[0]
+                            }else{ 
+                                tot1.val("")
+                            }
+                        }
+                        */
+                      /*console.log(470,counter,values,
+                       parseInt(values[0],16),
+                       parseInt(values[1],16),
+                       parseInt(values[2],16),
+                       parseInt(values[3],16), 
+                       parseInt(values[4],16),
+                       parseInt(values[5],16),
+                    )*/
+                       if(values[0]==""){                 per1.val=""}else{per1.val(parseInt(values[0],16))}
+                       if(values.length<2||values[1]==""){val1.val=""}else{val1.val(parseInt(values[1],16))}
+                       if(values.length<3||values[2]==""){tot1.val=""}else{tot1.val(parseInt(values[2],16))}
+                       if(values.length<4||values[3]==""){per2.val=""}else{per2.val(parseInt(values[3],16))}
+                       if(values.length<5||values[4]==""){val2.val=""}else{val2.val(parseInt(values[4],16))}
+                       if(values.length<6||values[5]==""){tot2.val=""}else{tot2.val(parseInt(values[5],16))}
+                      
+                        counter= counter+1
                     }
                 }
             }
         }
-        
+
         if(searchParams.has('s')){
             scenario =  searchParams.get('s')
             bURLs=true
@@ -838,18 +565,126 @@ $( document ).ready(function() {
 
         fn_scenario_update()//this will also take care of the totals
 
-        if(bURLs){fn_user_experience("scenario")}
-       
+        if(bURLs){
+            //shall we go current or tinker?
+            $("#current_content").removeClass("d-none")
+            $(".proposed").removeClass("d-none")
+            console.log("bURLS!")
+        }
+        
+
 
     }
-   
-    function init(){
-        //where do we plug the headings into?
-        anchor = $("#contents")
 
-        //run through the data and set up the fields (no values)
-        for(datum in data){
+    function fn_construct_current(){
+        //console.log("go through the dataset and construct the form")
+        anchor=$("#current_content")
+
+        tar_div=$("#target_input_div")
+        tar_inp = $("<input>").addClass(input_standard_classes).attr("id","target")
+        tar_div.append(tar_inp)
+
+        //-----------------------------------------------------------------------headings
+        div_row=$("<div>")
+            .attr("id","row_heading")
+            .addClass("row")
+            .addClass("mt-4")
             
+        div_content=$("<div>")
+            .attr("id","row_blank_heading")
+            .addClass("col-6")
+
+        div_row.append(div_content)//add the first five cols to the row
+
+        div_content=$("<div>")
+            .attr("id","row_c_heading")
+            .addClass("col-1")
+        h4_text=$("<h4>")
+        h4_text.append("Current")
+        div_content.append(h4_text)
+        div_row.append(div_content)//add the Current to the row
+
+        div_empty1= $("<div>").addClass("col-1")
+        div_tot1=$("<div>").addClass("col-1")
+        tot1 =$("<input />")
+            .attr("id","tot1_heading")
+            .attr("name","tot1_heading")
+            .addClass(input_standard_classes)
+            .attr("disabled",true)
+        div_tot1.append(tot1)
+        div_row.append(div_empty1).append(div_tot1)
+
+        div_content=$("<div>")
+            .attr("id","row_c_heading")
+            .addClass("col-1")
+            .addClass("proposed")
+        h4_text=$("<h4>")
+        h4_text.append("Plan")
+        div_content.append(h4_text)
+        div_row.append(div_content)//add the Plan to the row
+
+        div_empty2= $("<div>").addClass("col-1").addClass("proposed")
+        div_tot2=$("<div>").addClass("col-1").addClass("proposed")
+        tot2 =$("<input />")
+            .attr("id","tot2_heading")
+            .attr("name","tot2_heading")
+            .addClass(input_standard_classes)
+            .attr("disabled",true)
+        div_tot2.append(tot2)
+        
+        div_row.append(div_empty2).append(div_tot2)
+    
+        anchor.append(div_row)
+
+
+        //now we add a largely empty row with the Gap field in it
+        div_row=$("<div>")
+            .attr("id","row_heading")
+            .addClass("row")
+            .addClass("mt-4")
+            
+        div_content=$("<div>")
+            .attr("id","row_blank_heading")
+            .addClass("col-9")
+
+        div_row.append(div_content)//add the first nine blank cols to the row
+
+        div_content=$("<div>")
+            .attr("id","row_c_heading")
+            .addClass("col-1")
+            .addClass("proposed")
+        h4_text=$("<h4>")
+            .append("Gap")
+            .addClass("no_break")
+        div_content.append(h4_text)
+
+        info= $("<i>").addClass("bi bi-info-square mx-2")
+            .attr("data-toggle","tooltip")
+            .attr("data-placement","top")
+            .attr("data-html","true")
+            .attr("data-original-title","A negative numbe rin the ga indicates that the target has been achieved and surpassed")
+        div_content.append(info)
+
+        div_row.append(div_content)//add the Gap heading to the row
+
+        div_empty3= $("<div>").addClass("col-1").addClass("proposed")
+        div_tot3=$("<div>").addClass("col-1").addClass("proposed")
+        tot3 =$("<input />")
+            .attr("id","gap")
+            .attr("name","gap")
+            .addClass(input_standard_classes)
+            .attr("disabled",true)
+        div_tot3.append(tot3)
+        
+        div_row.append(div_empty3).append(div_tot3)
+    
+        anchor.append(div_row)
+//-----------------------------------------------------------------------/headings
+
+
+         //run through the data and set up the fields (no values)
+         for(datum in data){
+
             //we have a toggle within a span, attached to a h4 along with the actual heading text which is atte
             div_row=$("<div>")
                 .attr("id","row_" + String(datum))
@@ -874,33 +709,49 @@ $( document ).ready(function() {
             h4_text.append(data[datum].heading)
             div_content.append(h4_text)
 
-            div_empty1= $("<div>").addClass("col-2")
-            div_empty2= $("<div>").addClass("col-2").addClass("proposed")
+            div_lbsperunit1= $("<div>")
+                .attr("id","section_heading_lbsper1_"+String(datum))
+                .addClass("col-1").addClass("section_headings").addClass("section_heading_"+String(datum))
+                .html("£/Unit")
+            div_unit1= $("<div>")
+                .attr("id","section_heading_units1_"+String(datum))
+                .addClass("col-1").addClass("section_headings").addClass("section_heading_"+String(datum))
+                .html("Units")
+            div_lbsperunit2= $("<div>")
+                .attr("id","section_heading_lbsper2_"+String(datum))
+                .addClass("col-1").addClass("section_headings").addClass("section_heading_"+String(datum)).addClass("proposed")
+                .html("£/Unit")
+            div_unit2= $("<div>")
+                .attr("id","section_heading_units2_"+String(datum))
+                .addClass("col-1").addClass("section_headings").addClass("section_heading_"+String(datum)).addClass("proposed")
+                .html("Units")
 
             div_tot1=$("<div>").addClass("col-1")
             div_tot2=$("<div>").addClass("col-1").addClass("proposed")
 
-
-                //"w-100 float-end text-end blur form-control-lg"
             tot1 =$("<input />")
                 .attr("id","tot1_" + String(datum))
                 .attr("name","tot1_" + String(datum))
                 .addClass(input_standard_classes)
-                
-                
                 .attr("disabled",true)
+
             tot2 =$("<input />")
                 .attr("id","tot2_" + String(datum))
                 .attr("name","tot2_" + String(datum))
                 .addClass(input_standard_classes)
-                
-                .attr("disabled",true)
+               .attr("disabled",true)
 
             div_tot1.append(tot1)
             div_tot2.append(tot2)
             
-
-            div_row.append(div_content).append(div_empty1).append(div_tot1).append(div_empty2).append(div_tot2)
+            div_row
+                .append(div_content)
+                .append(div_lbsperunit1)
+                .append(div_unit1)
+                .append(div_tot1)
+                .append(div_lbsperunit2)
+                .append(div_unit2)
+                .append(div_tot2)
         
             anchor.append(div_row)
         
@@ -915,12 +766,12 @@ $( document ).ready(function() {
                 
                 all_cols =  "col-1"   
                 div_entry = $("<div>").addClass("col-6").addClass("text-nowrap")
-                div_per1 = $("<div>").addClass(all_cols)
-                div_per2 = $("<div>").addClass(all_cols).addClass("proposed")
-                div_tot1 = $("<div>").addClass(all_cols)
-                div_tot2 = $("<div>").addClass(all_cols).addClass("proposed")
-                div_val1 = $("<div>").addClass(all_cols).addClass("mr-4")
-                div_val2 = $("<div>").addClass(all_cols).addClass("proposed")
+                div_per1 = $("<div>").addClass(all_cols).addClass("tot_unit")                       .attr("id","div_per1_" + String(datum)+"_"+String(entry))
+                div_per2 = $("<div>").addClass(all_cols).addClass("tot_unit").addClass("proposed")  .attr("id","div_per2_" + String(datum)+"_"+String(entry))
+                div_tot1 = $("<div>").addClass(all_cols).addClass("tot_unit")                       .attr("id","div_tot1_" + String(datum)+"_"+String(entry))
+                div_tot2 = $("<div>").addClass(all_cols).addClass("tot_unit").addClass("proposed")  .attr("id","div_tot2_" + String(datum)+"_"+String(entry))
+                div_val1 = $("<div>").addClass(all_cols).addClass("tot_unit").addClass("mr-4")      .attr("id","div_val1_" + String(datum)+"_"+String(entry))
+                div_val2 = $("<div>").addClass(all_cols).addClass("tot_unit").addClass("proposed")  .attr("id","div_val2_" + String(datum)+"_"+String(entry))
 
                 title=$("<span>")
                     .html(data[datum].entries[entry].title)
@@ -953,13 +804,16 @@ $( document ).ready(function() {
                     .attr("id","tot1_" + String(datum)+"_"+String(entry))
                     .attr("name","tot1_" + String(datum)+"_"+String(entry))
                     .addClass(input_standard_classes)
-                    .attr("disabled","disabled")
+                    .addClass("pretend_disabled")
+                    .change(function(){fn_scenario_update()  })
+                    //.attr("disabled","disabled")
                 div_tot1.append(tot1)
 
                 per2 =$("<input />")
                     .attr("id","per2_" + String(datum)+"_"+String(entry))
                     .attr("name","per2_" + String(datum)+"_"+String(entry))
                     .addClass(input_standard_classes)
+                    .addClass("prop")
                     .change(function(){fn_scenario_update()  })
                 div_per2.append(per2)
 
@@ -967,6 +821,7 @@ $( document ).ready(function() {
                     .attr("id","val2_" + String(datum)+"_"+String(entry))
                     .attr("name","val2_" + String(datum)+"_"+String(entry))
                     .addClass(input_standard_classes)
+                    .addClass("prop")
                     .change(function(){fn_scenario_update()  })
                 div_val2.append(val2)
 
@@ -974,15 +829,543 @@ $( document ).ready(function() {
                     .attr("id","tot2_" + String(datum)+"_"+String(entry))
                     .attr("name","tot2_" + String(datum)+"_"+String(entry))
                     .addClass(input_standard_classes)
-                    .attr("disabled","disabled")
+                    .addClass("pretend_disabled")
+                    //.attr("disabled","disabled")
+                    .change(function(){fn_scenario_update()  })
                 div_tot2.append(tot2)
 
                 div_row.append(div_entry).append(div_per1).append(div_val1).append(div_tot1).append(div_per2).append(div_val2).append(div_tot2)
                 anchor.append(div_row)
             }
+
+            //lastly turn off each sections headings of Units and £/Unit
+            $(".section_headings").html("&nbsp;")
             
         }
     }
+
+    function fn_scenario_update(){
+        console.log("updating scenarios",scenario)
+        grand_current_total=0
+        grand_proposed_total=0
+
+        for(datum in data){
+            current_total=0
+            proposed_total=0
+
+            for(entry in data[datum].entries){
+                per1=$("#per1_"+String(datum)+"_"+String(entry))
+                per2=$("#per2_"+String(datum)+"_"+String(entry))
+                val1=$("#val1_"+String(datum)+"_"+String(entry))
+                val2=$("#val2_"+String(datum)+"_"+String(entry))
+                tot1=$("#tot1_"+String(datum)+"_"+String(entry))                
+                tot2=$("#tot2_"+String(datum)+"_"+String(entry))
+
+                if(tot1.val()!=""){current_total = current_total + parseInt(tot1.val())}
+                if(tot2.val()!=""){proposed_total = proposed_total + parseInt(tot2.val())}
+               
+            }
+            data[datum].current_total=parseInt(current_total)
+            data[datum].proposed_total=parseInt(proposed_total)
+            grand_current_total=parseInt(grand_current_total)+parseInt(current_total)
+            grand_proposed_total=parseInt(grand_proposed_total)+parseInt(proposed_total)
+
+            //console.log(data[datum].heading,current_total,proposed_total,$("#tot1_"+String(datum)))
+            $("#tot1_"+String(datum)).val(current_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))              
+            $("#tot2_"+String(datum)).val(proposed_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+        }
+        chart()
+        
+        gap_amt = target-grand_proposed_total;
+        console.log(target,grand_proposed_total,gap_amt)    
+        $("#tot1_heading").val(grand_current_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+        $("#tot2_heading").val(grand_proposed_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+        $("#gap").val(gap_amt   .toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+    
+    
+    }
+
+    /*------- charts -------*/
+    function fn_floor(input){
+        if(input < 0){return 0}else{return input}
+    }
+
+    function fn_destroy_charts(){ 
+        if(typeof c0 != 'undefined'){c0.destroy()}
+        if(typeof c1 != 'undefined'){c1.destroy()}
+        if(typeof c2 != 'undefined'){c2.destroy()}
+        if(typeof c3 != 'undefined'){c3.destroy()}
+        if(typeof c4 != 'undefined'){c4.destroy()}
+        if(typeof c5 != 'undefined'){c5.destroy()}
+        if(typeof c6 != 'undefined'){c6.destroy()}
+    }
+    
+    function chart(){
+
+        labels1=["Current"];labels6=["Current","Plan"];
+        datasets1=[];datasets2=[];datasets6=[];data_for_dataset2=[] 
+        current_total=0
+        proposed_total=0
+
+        /*-----prep for charts ----*/
+        for(datum in data){
+            current_total=current_total+data[datum].current_total;
+            proposed_total=proposed_total+data[datum].proposed_total;
+            datasets1.push(
+                {label: data[datum].heading, 
+                data: [
+                    data[datum].current_total
+                ],  borderColor: colors[datum], backgroundColor: colors[datum]})
+
+            datasets6.push(
+                {label: data[datum].heading, 
+                data: [
+                    data[datum].current_total
+                    , data[datum].proposed_total
+                ],  borderColor: colors[datum], backgroundColor: colors[datum]})
+        }
+        
+
+        //now we go bck through the record set with the percentages of each category instead of the totals (needed the total, thats why we do it now)
+        for(datum in data){
+            console.log( data[datum])
+            data_for_dataset2.push(
+                    data[datum].current_total / current_total
+            )
+            console.log(data[datum].current_total,current_total,data[datum].current_total / current_total)
+        }
+
+        datasets2 = [
+            {label: "Current", data:data_for_dataset2,backgroundColor: 'rgba(109, 48, 203, 0.0)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
+        ]
+
+        //109, 48, 203
+       // #6d30cb
+        datasets3 = [
+            {label: "Mainly Recording",     data:[0.45,0.15,0.1,0.1,0.20],backgroundColor: 'rgba(109, 48, 203, 0.0)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
+        ]
+        datasets4 = [
+            {label: "Mainly Live",          data:[0.15,0.15,0.35,0.15,0.20],backgroundColor: 'rgba(109, 48, 203, 0.5)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
+        ]
+        datasets5 = [
+            {label: "Mainly Publishing",    data:[0.15,0.45,0.1,0.1,0.20],backgroundColor: 'rgba(109, 48, 203, 1)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
+        ]
+
+        thickness = 2
+        datasets0 = [
+            {label: "Current",              data:data_for_dataset2,         backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(109, 48, 203)',borderWidth: thickness,},
+            {label: "Mainly Recording",     data:[0.45,0.15,0.1,0.1,0.20],  backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(79, 51, 96)',borderWidth: thickness,},
+            {label: "Mainly Live",          data:[0.15,0.15,0.35,0.15,0.20],backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(159,118,54',borderWidth: thickness,},
+            {label: "Mainly Publishing",    data:[0.15,0.45,0.1,0.1,0.20],  backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(239,184,11)',borderWidth: thickness,},
+
+        ]
+       // '#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636'
+
+        //wipe out all the charts to recreate them
+        fn_destroy_charts()
+
+        //chart by chart
+        c1= new Chart(ctx1,{type: 'bar', 
+                data:{
+                    labels: labels1, 
+                    datasets: datasets1, 
+                   // pointBackgroundColor
+                },
+                plugins: [ChartDataLabels],
+                options:{
+                    locale: "en-UK",
+                    scales: {
+                        x:{stacked:true},
+                        y:{stacked:true, 
+                            ticks:{ callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        }
+                    },
+                    plugins: {
+                        legend:{ display:true, position:'right',labels:{font:{size:14, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                        title:{display: false,font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        tooltip:{
+                            callbacks:{
+                                title: function(context){
+                                    return false
+                                },
+                                label: function(context){
+                                    let title = context.label;
+                                    let data = context.dataset.label
+                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
+                                    return title + " " + data + " " + String(value) 
+                                }
+                            }
+                        },
+                        datalabels: {display: false,
+                            formatter: function(value, context) {
+                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
+                            },
+                            labels: {title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                            anchor: "end", align: "end"
+                        } 
+                    }  
+                }
+            }    
+        )
+
+        c6= new Chart(ctx6,{type: 'bar', 
+                data:{
+                    labels: labels6, 
+                    datasets: datasets6, 
+                   // pointBackgroundColor
+                },
+                plugins: [ChartDataLabels],
+                options:{
+                    locale: "en-UK",
+                    scales: {
+                        x:{stacked:true},
+                        y:{stacked:true, 
+                            ticks:{ callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        }
+                    },
+                    plugins: {
+                        legend:{ display:true, position:'right',labels:{font:{size:14, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                        title:{display: false,font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        tooltip:{
+                            callbacks:{
+                                title: function(context){
+                                    return false
+                                },
+                                label: function(context){
+                                    let title = context.label;
+                                    let data = context.dataset.label
+                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
+                                    return title + " " + data + " " + String(value) 
+                                }
+                            }
+                        },
+                        datalabels: {display: false,
+                            formatter: function(value, context) {
+                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
+                            },
+                            labels: {title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                            anchor: "end", align: "end"
+                        } 
+                    }  
+                }
+            }    
+        )
+
+            c2=new Chart(ctx2,{
+  type: 'radar',
+  data: {
+    labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
+    datasets: datasets2
+    },options:{
+        plugins:{
+            legend:{display:false},
+            title:{ display:true,text:"Current"}
+        },elements:{point:{radius:1,pointStyle:'star',}},
+        scales:{r:{min:0}}
+    }
+})
+
+
+c3=new Chart(ctx3,{
+    type: 'radar',
+    data: {
+        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
+        datasets: datasets3
+    },
+    options:{
+        plugins:{
+            legend:{display:false},
+            title:{ display:true,text:"Mainly Recording"}
+        },elements:{point:{radius:1,pointStyle:'star',}},
+        scales:{r:{min:0}}
+    }
+})
+
+c4=new Chart(ctx4,{
+    type: 'radar',
+    data: {
+        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
+        datasets: datasets4
+    },
+    options:{
+        plugins:{
+            legend:{display:false},
+            title:{ display:true,text:"Mainly Publishing"}
+        },elements:{point:{radius:1,pointStyle:'star',}},
+        scales:{r:{min:0}}
+    }
+})
+
+c5=new Chart(ctx5,{
+    type: 'radar',
+    data: {
+        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
+        datasets: datasets5
+    },
+    options:{
+        plugins:{
+            legend:{display:false},
+            title:{ display:true,text:"Mainly Live"}
+        },elements:{point:{radius:1,pointStyle:'star',}},
+        scales:{r:{min:0}}
+              
+    }
+})
+c0=new Chart(ctx0,{
+    type: 'radar',
+    data: {
+        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
+        datasets: datasets0
+    },
+    options:{
+        plugins:{
+            legend:{display:false},
+            title:{ display:true,text:"Comparisons"}
+        },elements:{point:{radius:1,pointStyle:'star',}},
+        scales:{r:{min:0}}
+              
+    }
+})
+
+
+    }
+/*circle''cross''crossRot''dash''line''rect''rectRounded''rectRot''star''triangle' false*/
+    /*------- excel -------*/
+    function fn_export_excel(){
+        var exp = $("#exportable_data")
+        var rl = $("#return_link")
+        var ci = $("#chart_img")
+        //wipe existing data
+        exp.html("")
+        var heading;
+        var row;
+        var cell;
+        var local;
+        var v='';
+        var excel_row;
+        
+        /*
+        <th>Category</th>               
+        <th>Entry</th>                  
+        <th>£/unit</th>       
+        <th>Unts</th>  
+        <th>£/unit</th>       
+        <th>Unts</th>       
+        */
+        excel_row=3;
+        //populate the hidden table with all the data
+        for(s in data){
+            heading=data[s].heading
+            for(e in data[s].entries){
+                local=data[s].entries[e]
+                revperitem=''
+                val=''
+
+                row=$("<tr />")
+                cell=$("<td />").html(heading); row.append(cell)
+                cell=$("<td />").html(local.title); row.append(cell)
+                
+                per1=$("#per1_"+String(s)+"_"+String(e)).val()
+                per2=$("#per2_"+String(s)+"_"+String(e)).val()
+                val1=$("#val1_"+String(s)+"_"+String(e)).val()
+                val2=$("#val2_"+String(s)+"_"+String(e)).val()
+                tot1=$("#tot1_"+String(s)+"_"+String(e)).val()
+                tot2=$("#tot2_"+String(s)+"_"+String(e)).val()
+
+                hex1=''
+                if(Number.isInteger(parseInt(val1))){
+                    hex1=parseInt(val1).toString(16)
+                }
+                hex2=''
+                if(Number.isInteger(parseInt(val2))){
+                    hex2=parseInt(val2).toString(16)
+                }
+                hex3=''
+                if(Number.isInteger(parseInt(tot1))){
+                    hex3=parseInt(tot1).toString(16)
+                }
+                hex4=''
+                if(Number.isInteger(parseInt(tot2))){
+                    hex4=parseInt(tot2).toString(16)
+                }
+                
+                excel_row=excel_row+1
+                cee="C"+excel_row
+                dee="D"+excel_row
+                eff="F"+excel_row
+                gee="G"+excel_row
+
+                console.log(
+                    "diabled check",String(s),String(e),excel_row,
+                    $("#tot1_"+String(s)+"_"+String(e)).hasClass("pretend_disabled"),
+                    $("#tot2_"+String(s)+"_"+String(e)).hasClass("pretend_disabled")
+                )
+                cell=$("<td />").html(per1); row.append(cell);
+                cell=$("<td />").html(val1); row.append(cell);
+                if($("#tot1_"+String(s)+"_"+String(e)).hasClass("pretend_disabled")){
+                    cell=$("<td />").html("="+cee+"*"+dee); row.append(cell);
+                }else{
+                    cell=$("<td />").html(tot1);row.append(cell);
+                }
+
+                cell=$("<td />").html(per2); row.append(cell);
+                cell=$("<td />").html(val2); row.append(cell);
+                if($("#tot2_"+String(s)+"_"+String(e)).hasClass("pretend_disabled")){
+                    cell=$("<td />").html("="+eff+"*"+gee); row.append(cell);
+                }else{
+                    cell=$("<td />").html(tot2);row.append(cell);
+                }
+                
+                exp.append(row)
+                v=v+String(per1)+delim+hex1+delim+hex3+delim+String(per2)+delim+hex2+delim+hex4+sep
+            }
+        }
+
+        rl.html(window.location.origin+window.location.pathname+"?s="+String(scenario)+"&t="+String(parseInt(target).toString(16))+"&v="+v)
+        //$("#exportable").removeClass("d-none")
+        tableToExcel('exportable', 'Income Data')
+    }
+
+    var tableToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,'
+            , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
+            , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
+            , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
+        return function(table, name) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+            window.location.href = uri + base64(format(template, ctx))
+        }
+    })()
+
+    /*---------------------------------------------------------------------------------------------------
+    ------------------------------------------    listeners    ------------------------------------------
+    -----------------------------------------------------------------------------------------------------*/
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $("#btn_target").click(function(){
+        target=parseInt($("#target").val())
+        fn_scenario_update()
+        
+        //switch to Plan
+
+        //turn off all the menus and hide the content
+        $(".these_menus").addClass("d-none");
+        $(".div_content").addClass("d-none")
+            
+        //highlight this menu item
+        $(".tinker_menu").removeClass("d-none")
+
+        $("#current_content").removeClass("d-none")
+        $(".proposed").removeClass("d-none")
+        $("#chart_content").removeClass("d-none")
+
+    })
+
+    $( "#frm" ).on( "submit", function( event ) {
+        //alert( "Handler for `submit` called." );
+        event.preventDefault();
+    });
+
+    $(".current").change(function(){
+        which_field=$(this).attr("id").substring(3)
+        console.log($(this).attr("id"),which_field);
+        if($(this).attr("id").substring(0,3)!='tot'){
+            if($("#per"+which_field).val()!="" && $("#val"+which_field).val() !="" ){
+                $("#tot"+which_field).val($("#per"+which_field).val() * $("#val"+which_field).val())
+            }
+        }
+        fn_scenario_update()
+    })
+    $(".prop").change(function(){
+        which_field=$(this).attr("id").substring(3)
+        if($(this).attr("id").substring(0,3)!='tot'){
+            if($("#per"+which_field).val()!="" && $("#val"+which_field).val() !="" ){
+                $("#tot"+which_field).val($("#per"+which_field).val() * $("#val"+which_field).val())
+            }
+        }
+        fn_scenario_update()
+    })
+
+    $(".tot_unit").click(function(){
+        
+        triggering_div =  $(this).attr("id")
+        data_entry = triggering_div.substring(7)
+        tot_input = $("#tot" + data_entry)
+        per_input = $("#per" + data_entry)
+        val_input = $("#val" + data_entry)
+        //if we clicked on the total
+        if(triggering_div.substring(4,7)=="tot"){
+            tot_input.removeClass("pretend_disabled")
+            per_input.addClass("pretend_disabled").val("")
+            val_input.addClass("pretend_disabled").val("")
+        //if we clicked on either the units or per unit amount
+        }else{
+            //wipe the existing amount and turn it off
+            tot_input.addClass("pretend_disabled").val("")
+            //make sure that neither units nor per units fields are disabled
+            per_input.removeClass("pretend_disabled")
+            val_input.removeClass("pretend_disabled")
+        }
+
+    })
+
+    $(".toggle_section").click(function(){
+        var this_section = String(this.id.split("toggle_")[1])
+        var isShowing = $(".row_"+this_section).hasClass("d-none")
+        
+        var dv=$("#row_" + this_section)
+
+        //turn everything off
+        $(".toggle_section").removeClass("bi-dash-square").addClass("bi-plus-square")
+        $(".entry_row").addClass("d-none")
+        $(".section_headings").html("&nbsp;")//and make the section headings disappear
+        
+        //if we not already showing this section, turn it on
+        if(isShowing){
+            $("#toggle_"+this_section).addClass("bi-dash-square").removeClass("bi-plus-square")
+            $(".row_"+this_section).removeClass("d-none")
+
+            $("#section_heading_lbsper1_"+this_section).html("£/Unit")
+            $("#section_heading_units1_"+this_section).html("Units")
+            $("#section_heading_lbsper2_"+this_section).html("£/Unit")
+            $("#section_heading_units2_"+this_section).html("Units")
+         
+        }
+    })
+
+    $(".menus").click(function(){
+
+        clicked = this.id
+        //console.log("menu",clicked)
+        menu_class="." + clicked.replace("a_","") + "_menu"
+        content_id="#" + clicked.replace("a_","") + "_content"
+
+        if(clicked!="a_excel"){
+
+            //turn off all the menus and hide the content
+            $(".these_menus").addClass("d-none");
+            $(".div_content").addClass("d-none")
+            
+            //highlight this menu item
+            $(menu_class).removeClass("d-none")
+
+            if(clicked == "a_tinker"){
+                $("#current_content").removeClass("d-none")
+                $(".proposed").removeClass("d-none")
+                $("#chart_content").removeClass("d-none")
+                
+            }else{
+                $(content_id).removeClass("d-none")
+                $(".proposed").addClass("d-none")
+            }
+            
+        }else{
+            fn_export_excel()
+       }
+    })
 
 });
 </script>
