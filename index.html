@@ -218,21 +218,24 @@ text-indent:0px;
 
     <div id="summary_content" class="container div_content">
         <div class="row">
-            <div class="col-12"><canvas id="chart1" width="1200" height="300"></canvas></div>
+            <div class="col-12"><canvas id="chart0" width="1200" height="300"></canvas></div>
         </div>
     </div> 
 
     <div id="compare_content" class="container div_content">
-        <div class="row the_one">
-            <div class="col-12"><canvas id="chart0" width="1200" height="600"></canvas></div>
+        <div class="row the_four">
+            <div class="col-6"><h4>Current</h4></div>
+            <div class="col-6"><h4>Comparisons</h4></div>
+        </div>
+        <div class="row the_four">
+            <div class="col-6"></div>
+            <div class="col-2"><button type="button" id="btn_compare_recording" class="btn btn_compare btn-primary btn-lg"">Mainly Recording</button></div>
+            <div class="col-2"><button type="button" id="btn_compare_live" class="btn btn_compare btn-outline-primary btn-lg">Mainly Live</button></div>
+            <div class="col-2"><button type="button" id="btn_compare_publishing" class="btn btn_compare btn-outline-primary btn-lg"">Mainly Publishing</button></div>
         </div>
         <div class="row the_four">
             <div class="col-6"><canvas id="chart2" width="400" height="400"></canvas></div>
             <div class="col-6"><canvas id="chart3" width="400" height="400"></canvas></div>
-        </div>
-        <div class="row the_four">
-            <div class="col-6"><canvas id="chart4" width="400" height="400"></canvas></div>
-            <div class="col-6"><canvas id="chart5" width="400" height="400"></canvas></div>
         </div>
     </div> 
 
@@ -242,7 +245,7 @@ text-indent:0px;
 
     <div id="chart_content" class="container div_content">
         <div id="tinker_chart" class="row ">
-            <div class="col-12"><canvas id="chart6" width="800" height="800"></canvas></div>
+            <div class="col-12"><canvas id="chart1" width="800" height="800"></canvas></div>
         </div>
     </div>
 
@@ -294,15 +297,13 @@ text-indent:0px;
     var delim='|'
     var sep='~'
     var bURLs=false
-    var ctx0 = document.getElementById("chart0").getContext("2d");
-    var ctx1 = document.getElementById("chart1").getContext("2d");
-    var ctx2 = document.getElementById("chart2").getContext("2d");
-    var ctx3 = document.getElementById("chart3").getContext("2d");
-    var ctx4 = document.getElementById("chart4").getContext("2d");
-    var ctx5 = document.getElementById("chart5").getContext("2d");
-    var ctx6 = document.getElementById("chart6").getContext("2d");
-    var target=0;
+    var ctx0 = document.getElementById("chart0").getContext("2d");//summary
+    var ctx1 = document.getElementById("chart1").getContext("2d");//plan
+    var ctx2 = document.getElementById("chart2").getContext("2d");//compare (summary)
+    var ctx3 = document.getElementById("chart3").getContext("2d");//compare (scenario)
 
+    var target=0;
+    var selected_proportion=0;
     var colors = [  
                 '#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636',
                 '#3600FF','#B0BEB4','#596387','#21517F','#4D0E78',
@@ -366,55 +367,62 @@ text-indent:0px;
     var data = [
     {heading:"Recorded Music", current_total: 0, proposed_total: 0,
         entries:[
-            {title:"Rec - Advance",                         color: colors[0], help: "Example of help information to prove the I box works"},
-            {title:"Rec - Album Vinyl ",                    color: colors[1], help: ""},
-            {title:"Rec - Album Sales (CD and Download)",   color: colors[2], help: ""},
-            {title:"Rec - Audio Streams",                   color: colors[3], help: ""},
-            {title:"Rec - Video Streams",                   color: colors[4], help: ""},
-            {title:"Rec - Sync",                            color: colors[5], help: ""},
-            {title:"PPL Royalties",                         color: colors[6], help: ""},
-            
+            {title:"Rec - Advance",  color: colors[0], help: "An advance is a lump sum paid in advance of expected royalties, and is repaid from future royalty earnings. The Recorded Music Advance refers to any lump sum advance paid for your existing or future recordings (but not the underlying songs, which would be paid under publishing)"},
+            {title:"Rec -  Vinyl Sales",  color: colors[0], help: "Sound recording (Master) revenue from sales of Vinyl"},
+            {title:"Rec - Music  Sales (CD and Download)",  color: colors[0], help: "Sound recording (Master) revenue from downloads and sales of physical products, excluding Vinyl"},
+            {title:"Rec - Audio Streams",  color: colors[0], help: "Sound recording (Master) revenue from Digital Service Providers (DSPs) like Spotify, Apple Music, Soundcloud and Deezer"},
+            {title:"Rec - Video Streams",  color: colors[0], help: "Sound recording (Master) revenue from Video Service Providers like YouTube"},
+            {title:"Rec - Sync",  color: colors[0], help: "Sound recording (Master) revenue from having your music used in film, TV, games, adverts and other contexts where a sync fee is paid."},
+            {title:"PPL Royalties",  color: colors[0], help: "Sound recording (Master and Neighbouring rights) royalties paid for the use of your music in the UK and overseas. If someone other than PPL collects these on your behalf you can still include the revenue here."},
+            {title:"Other Recorded Music",  color: colors[0], help: "Other sound recording income not captured above"},
         ]
     },
     {heading:"Music Publishing", current_total: 0, proposed_total: 0,
         entries: [
-            {title:"Pub - Advance",color: colors[0], help: ""},
-            {title:"Pub - Album Vinyl ",color: colors[0], help: ""},
-            {title:"Pub - Album Sales (CD and Download)",color: colors[0], help: ""},
-            {title:"Pub - Audio Streams",color: colors[0], help: ""},
-            {title:"Pub - Video Streams",color: colors[0], help: ""},
-            {title:"Pub - Sync",color: colors[0], help: ""},
-            {title:"Commissions",color: colors[0], help: ""},
-            {title:"PRS Royalties",color: colors[0], help: ""},
+            {title:"Pub - Advance",  color: colors[0], help: "An advance is a lump sum paid in advance of expected royalties, and is repaid from future royalty earnings. The Publisher Advance refers to any lump sum advance paid for your existing or future songs (but not the recordings of those songs)"},
+            {title:"Pub -  Vinyl Sales",  color: colors[0], help: "Publishing income from pressing of Vinyl (Mechanical Rights)"},
+            {title:"Pub - Music  Sales (CD and Download)",  color: colors[0], help: "Publishing income (Mechanical and Performing) from downloads and sales of physical products, excluding Vinyl"},
+            {title:"Pub - Audio Streams",  color: colors[0], help: "Publishing income (Mechanical and Performing) from Digital Service Providers (DSPs) like Spotify, Apple Music, Soundcloud and Deezer"},
+            {title:"Pub - Video Streams",  color: colors[0], help: "Publishing income (Mechanical and Performing) from Video Service Providers like YouTube"},
+            {title:"Pub - Sync",  color: colors[0], help: "Publishing income paid for having your music used in film, TV, games, adverts and other contexts where a sync fee is paid."},
+            {title:"Commissions",  color: colors[0], help: "Fees paid to create music for a specific purpose, not covered above, such as writing for a computer game."},
+            {title:"PRS Royalties",  color: colors[0], help: "Publishing royalties paid for the use of your music in the UK and overseas, other than for those listed above. This includes your music being played on the radio, in the background in bars and much more. If someone other than PRS for Music collects these on your behalf you can still include the revenue here."},
+            {title:"Other Music Publishing",  color: colors[0], help: "Other music publishing income not captured above."},
         ]
     },
     {heading:"Live Music", current_total: 0, proposed_total: 0,
         entries: [
-            {title:"Live Music",color: colors[0], help: ""},
-            {title:"International Tour",color: colors[0], help: ""},
-            {title:"Domestic Tour",color: colors[0], help: ""},
-            {title:"One off concerts",color: colors[0], help: ""},
-            {title:"Support slot",color: colors[0], help: ""},
-            {title:"Private shows",color: colors[0], help: ""},
-            {title:"Session ",color: colors[0], help: ""},
-
+            {title:"International Tour",  color: colors[0], help: "Revenue from international touring."},
+            {title:"Domestic Tour",  color: colors[0], help: "Revenue from domestic touring."},
+            {title:"One off concerts",  color: colors[0], help: "Revenue paid from one off shows, that do not form part of a tour."},
+            {title:"Support slot",  color: colors[0], help: "Revenue paid from support slots."},
+            {title:"Private shows",  color: colors[0], help: "Revenue paid from private events."},
+            {title:"Session ",  color: colors[0], help: "Revenue paid from playing live as a session musician for other artists."},
+            {title:"Other Live Music ",  color: colors[0], help: "Other live music income not captured above."},
         ]
     },
     {heading:"Brand and Image", current_total: 0, proposed_total: 0,
         entries: [
-            {title:"Merchandise",color: colors[0], help: ""},
-            {title:"Brand Partnerships",color: colors[0], help: ""},
-            {title:"Sponsorships",color: colors[0], help: ""},
-            {title:"Influencer income",color: colors[0], help: ""},
+            {title:"Merchandise",  color: colors[0], help: "Revenue from selling merchandise (if you sell CDs at shows as merch be careful not to double count the income captured above)."},
+            {title:"Brand Partnerships",  color: colors[0], help: "Revenue from partnerships with brands to promote their products."},
+            {title:"Sponsorships",  color: colors[0], help: "Revenue from sponsorships (excluding brand partnerships above)."},
+            {title:"Influencer income",  color: colors[0], help: "Revenue from infulencer activities not captured above."},
+            {title:"Other Brand and Image",  color: colors[0], help: "Other brand and image income not captured above."},
         ]
     },
     {heading:"Other Income", current_total: 0, proposed_total: 0,
         entries: [
-            {title:"Crowdfunding",color: colors[0], help: ""},
-            {title:"Grants",color: colors[0], help: ""},
-            {title:"Gifts",color: colors[0], help: ""},
-            {title:"Investment",color: colors[0], help: ""},
-            {title:"Sub- Patreon",color: colors[0], help: ""},
+            {title:"Crowdfunding",  color: colors[0], help: "Income from crowdfunding campaigns."},
+            {title:"Grants",  color: colors[0], help: "Income from grants you have received."},
+            {title:"Gifts",  color: colors[0], help: "Income from gifts."},
+            {title:"Investment",  color: colors[0], help: "Direct investment from private individuals, fans or professional investors excluding advances captured above."},
+            {title:"Subscription (such as Patreon)",  color: colors[0], help: ""},
+            {title:"Teaching",  color: colors[0], help: "Income from teaching."},
+            {title:"Conducting",  color: colors[0], help: "Income from conducting work."},
+            {title:"Arranging ",  color: colors[0], help: "Income from arrangement work."},
+            {title:"Instrument making/repairs",  color: colors[0], help: "Income from work creating or repairing instruments."},
+            {title:"Additional Income One",  color: colors[0], help: "Please add anything you would like to capture that is not included above."},
+            {title:"Additional Income Two",  color: colors[0], help: "Please add anything else you would like to capture.  If you have more than 2 other income streams please combine them and the use the total here."},
         ]
     }
 ]
@@ -436,9 +444,7 @@ $( document ).ready(function() {
     //check for url parameters
     pop()
 
-    //are we wanting a single chart with four entries or four seperate charts?
-    //$(".the_one").addClass("d-none")
-    $(".the_four").addClass("d-none")
+   
 
     /*---------------------------------------------------------------------------------------------------
     ------------------------------------------    functions    ------------------------------------------
@@ -507,36 +513,6 @@ $( document ).ready(function() {
 
                         values=couplets[counter].split(delim)
 
-                       /*
-
-                        if(values.length>=3){
-                            if(values[3]!=""){     
-                                val2.val(parseInt(  values[3],16)); 
-                                tot2.val(parseInt(  values[3],16)) * values[2]
-                            }else{ 
-                                tot2.val("")
-                            }
-                        }
-                        if(values.length>=2){                       
-                            per2.val(values[2]) 
-                        }    
-                        if(values.length>=1){
-                            if(values[1]!=""){     
-                                val1.val(parseInt(  values[1],16)); 
-                                tot1.val(parseInt(  values[1],16)) * values[0]
-                            }else{ 
-                                tot1.val("")
-                            }
-                        }
-                        */
-                      /*console.log(470,counter,values,
-                       parseInt(values[0],16),
-                       parseInt(values[1],16),
-                       parseInt(values[2],16),
-                       parseInt(values[3],16), 
-                       parseInt(values[4],16),
-                       parseInt(values[5],16),
-                    )*/
                        if(values[0]==""){                 per1.val=""}else{per1.val(parseInt(values[0],16))}
                        if(values.length<2||values[1]==""){val1.val=""}else{val1.val(parseInt(values[1],16))}
                        if(values.length<3||values[2]==""){tot1.val=""}else{tot1.val(parseInt(values[2],16))}
@@ -662,7 +638,7 @@ $( document ).ready(function() {
             .attr("data-toggle","tooltip")
             .attr("data-placement","top")
             .attr("data-html","true")
-            .attr("data-original-title","A negative numbe rin the ga indicates that the target has been achieved and surpassed")
+            .attr("data-original-title","A negative number in the gap field indicates that the target has been achieved and surpassed")
         div_content.append(info)
 
         div_row.append(div_content)//add the Gap heading to the row
@@ -876,11 +852,11 @@ $( document ).ready(function() {
         }
         chart()
         
-        gap_amt = target-grand_proposed_total;
-        console.log(target,grand_proposed_total,gap_amt)    
+        gap_amt = grand_current_total-grand_proposed_total;
+        //console.log(grand_current_total,target,grand_proposed_total,gap_amt)    
         $("#tot1_heading").val(grand_current_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
         $("#tot2_heading").val(grand_proposed_total.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
-        $("#gap").val(gap_amt   .toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
+        $("#gap").val(gap_amt.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0}))
     
     
     }
@@ -891,22 +867,20 @@ $( document ).ready(function() {
     }
 
     function fn_destroy_charts(){ 
-        if(typeof c0 != 'undefined'){c0.destroy()}
-        if(typeof c1 != 'undefined'){c1.destroy()}
-        if(typeof c2 != 'undefined'){c2.destroy()}
-        if(typeof c3 != 'undefined'){c3.destroy()}
-        if(typeof c4 != 'undefined'){c4.destroy()}
-        if(typeof c5 != 'undefined'){c5.destroy()}
-        if(typeof c6 != 'undefined'){c6.destroy()}
+        if(typeof c0 != 'undefined'){c0.destroy()}//summary
+        if(typeof c1 != 'undefined'){c1.destroy()}//plan
+        if(typeof c2 != 'undefined'){c2.destroy()}//compare (summary)
+        if(typeof c3 != 'undefined'){c3.destroy()}//compare (scenario)
     }
     
     function chart(){
 
-        labels1=["Current"];labels6=["Current","Plan"];
-        datasets1=[];datasets2=[];datasets6=[];data_for_dataset2=[] 
+        labels1=["Current"];labels3=[""];labels6=["Current","Plan"];
+        datasets1=[];datasets2=[];datasets3=[];datasets6=[];data_for_dataset2=[] 
         current_total=0
         proposed_total=0
 
+        //console.log(selected_proportion)
         /*-----prep for charts ----*/
         for(datum in data){
             current_total=current_total+data[datum].current_total;
@@ -925,47 +899,32 @@ $( document ).ready(function() {
                 ],  borderColor: colors[datum], backgroundColor: colors[datum]})
         }
         
-
-        //now we go bck through the record set with the percentages of each category instead of the totals (needed the total, thats why we do it now)
+        proportions=[
+            {title:"Mainly Recording",  proportions:[0.45,0.15,0.10,0.10,0.20]},
+            {title:"Mainly Live",       proportions:[0.15,0.15,0.35,0.15,0.20]},
+            {title:"Mainly Publishing", proportions:[0.15,0.45,0.10,0.10,0.20]},
+        ]
+        
         for(datum in data){
-            console.log( data[datum])
-            data_for_dataset2.push(
-                    data[datum].current_total / current_total
-            )
-            console.log(data[datum].current_total,current_total,data[datum].current_total / current_total)
+            datasets3.push(
+                {label:proportions[selected_proportion].title+ ": "+data[datum].heading, 
+                data: [
+                    current_total* proportions[selected_proportion].proportions[datum]
+                ],  borderColor: colors[datum], backgroundColor: colors[datum]})      
         }
 
         datasets2 = [
             {label: "Current", data:data_for_dataset2,backgroundColor: 'rgba(109, 48, 203, 0.0)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
         ]
 
-        //109, 48, 203
-       // #6d30cb
-        datasets3 = [
-            {label: "Mainly Recording",     data:[0.45,0.15,0.1,0.1,0.20],backgroundColor: 'rgba(109, 48, 203, 0.0)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
-        ]
-        datasets4 = [
-            {label: "Mainly Live",          data:[0.15,0.15,0.35,0.15,0.20],backgroundColor: 'rgba(109, 48, 203, 0.5)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
-        ]
-        datasets5 = [
-            {label: "Mainly Publishing",    data:[0.15,0.45,0.1,0.1,0.20],backgroundColor: 'rgba(109, 48, 203, 1)',borderColor: 'rgb(109, 48, 203)',borderWidth: 1,},
-        ]
 
-        thickness = 2
-        datasets0 = [
-            {label: "Current",              data:data_for_dataset2,         backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(109, 48, 203)',borderWidth: thickness,},
-            {label: "Mainly Recording",     data:[0.45,0.15,0.1,0.1,0.20],  backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(79, 51, 96)',borderWidth: thickness,},
-            {label: "Mainly Live",          data:[0.15,0.15,0.35,0.15,0.20],backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(159,118,54',borderWidth: thickness,},
-            {label: "Mainly Publishing",    data:[0.15,0.45,0.1,0.1,0.20],  backgroundColor: 'rgba(109, 48, 203, 0.0)', borderColor: 'rgb(239,184,11)',borderWidth: thickness,},
-
-        ]
        // '#4F3360','#FEF200','#EFB80B','#8D63E6','#9F7636'
 
         //wipe out all the charts to recreate them
         fn_destroy_charts()
 
         //chart by chart
-        c1= new Chart(ctx1,{type: 'bar', 
+        c0= new Chart(ctx0,{type: 'bar', 
                 data:{
                     labels: labels1, 
                     datasets: datasets1, 
@@ -1008,7 +967,7 @@ $( document ).ready(function() {
             }    
         )
 
-        c6= new Chart(ctx6,{type: 'bar', 
+        c1= new Chart(ctx1,{type: 'bar', 
                 data:{
                     labels: labels6, 
                     datasets: datasets6, 
@@ -1051,81 +1010,96 @@ $( document ).ready(function() {
             }    
         )
 
-            c2=new Chart(ctx2,{
-  type: 'radar',
-  data: {
-    labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
-    datasets: datasets2
-    },options:{
-        plugins:{
-            legend:{display:false},
-            title:{ display:true,text:"Current"}
-        },elements:{point:{radius:1,pointStyle:'star',}},
-        scales:{r:{min:0}}
-    }
-})
+         //chart by chart
+         c2= new Chart(ctx2,{type: 'bar', 
+                data:{
+                    labels: labels1, 
+                    datasets: datasets1, 
+                   // pointBackgroundColor
+                },
+                plugins: [ChartDataLabels],
+                options:{
+                    locale: "en-UK",
+                    scales: {
+                        x:{stacked:true},
+                        y:{stacked:true, 
+                            ticks:{ callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        }
+                    },
+                    plugins: {
+                        legend:{ display:false, position:'right',labels:{font:{size:14, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                        title:{display: false,font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        tooltip:{
+                            callbacks:{
+                                title: function(context){
+                                    return false
+                                },
+                                label: function(context){
+                                    let title = context.label;
+                                    let data = context.dataset.label
+                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
+                                    return title + " " + data + " " + String(value) 
+                                }
+                            }
+                        },
+                        datalabels: {display: false,
+                            formatter: function(value, context) {
+                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
+                            },
+                            labels: {title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                            anchor: "end", align: "end"
+                        } 
+                    }  
+                }
+            }    
+        )
+
+       //chart by chart
+       c3= new Chart(ctx3,{type: 'bar', 
+                data:{
+                    labels: labels3, 
+                    datasets: datasets3, 
+                   // pointBackgroundColor
+                },
+                plugins: [ChartDataLabels],
+                options:{
+                    locale: "en-UK",
+                    scales: {
+                        x:{stacked:true},
+                        y:{stacked:true, 
+                            ticks:{ callback: (value, index, values) => {return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});},font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        }
+                    },
+                    plugins: {
+                        legend:{ display:false, position:'right',labels:{font:{size:14, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                        title:{display: false,font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},},
+                        tooltip:{
+                            callbacks:{
+                                title: function(context){
+                                    return false
+                                },
+                                label: function(context){
+                                    let title = context.label;
+                                    let data = context.dataset.label
+                                    let value = context.raw.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0})
+                                    return title + " " + data + " " + String(value) 
+                                }
+                            }
+                        },
+                        datalabels: {display: false,
+                            formatter: function(value, context) {
+                                return value.toLocaleString('en-UK',{style:"currency", currency: "GBP",minimumFractionDigits: 0, maximumFractionDigits: 0});
+                            },
+                            labels: {title: {color: 'black',font:{size:16, family: 'system-ui,-apple-system,"Segoe UI",Roboto'},}},
+                            anchor: "end", align: "end"
+                        } 
+                    }  
+                }
+            }    
+        )
 
 
-c3=new Chart(ctx3,{
-    type: 'radar',
-    data: {
-        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
-        datasets: datasets3
-    },
-    options:{
-        plugins:{
-            legend:{display:false},
-            title:{ display:true,text:"Mainly Recording"}
-        },elements:{point:{radius:1,pointStyle:'star',}},
-        scales:{r:{min:0}}
-    }
-})
 
-c4=new Chart(ctx4,{
-    type: 'radar',
-    data: {
-        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
-        datasets: datasets4
-    },
-    options:{
-        plugins:{
-            legend:{display:false},
-            title:{ display:true,text:"Mainly Publishing"}
-        },elements:{point:{radius:1,pointStyle:'star',}},
-        scales:{r:{min:0}}
-    }
-})
-
-c5=new Chart(ctx5,{
-    type: 'radar',
-    data: {
-        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
-        datasets: datasets5
-    },
-    options:{
-        plugins:{
-            legend:{display:false},
-            title:{ display:true,text:"Mainly Live"}
-        },elements:{point:{radius:1,pointStyle:'star',}},
-        scales:{r:{min:0}}
-              
-    }
-})
-c0=new Chart(ctx0,{
-    type: 'radar',
-    data: {
-        labels: ['Recorded Music','Music Publishing','Live Music','Brand and Image','Other Income'  ],
-        datasets: datasets0
-    },
-    options:{
-        plugins:{
-            legend:{display:false},
-            title:{ display:true,text:"Comparisons"}
-        },elements:{point:{radius:1,pointStyle:'star',}},
-        scales:{r:{min:0}}
-              
-    }
-})
 
 
     }
@@ -1243,6 +1217,24 @@ c0=new Chart(ctx0,{
     -----------------------------------------------------------------------------------------------------*/
     $(function(){
         $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $(".btn_compare").click(function(){
+        
+        this_id=$(this).attr("id")
+        $(".btn_compare").removeClass("btn-primary")
+        $(".btn_compare").addClass("btn-outline-primary");
+        $(this).removeClass("btn-outline-primary").addClass("btn-primary")
+        if(this_id=="btn_compare_recording"){
+            selected_proportion=0;  
+        }else if(this_id=="btn_compare_live"){
+            selected_proportion=1;   
+        }else if(this_id=="btn_compare_publishing"){
+            selected_proportion=2; 
+        }
+
+        chart();    
+
     })
 
     $("#btn_target").click(function(){
